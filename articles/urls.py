@@ -22,4 +22,5 @@ urlpatterns = [
 
     #Search engine
     url(r'^search/$', view= post_search, name='post_search'),
+
   ]

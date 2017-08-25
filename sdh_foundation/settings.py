@@ -29,6 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ID = 1
 
 # Application definition
 
@@ -39,6 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'robots',
     'whoosh',
     'haystack',
     'articles',
@@ -58,7 +62,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sdh_foundation.urls'
-ALLOWED_HOSTS = ['localhost', 'sef.ngrok.io', '127.0.0.1']
+ALLOWED_HOSTS = []
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

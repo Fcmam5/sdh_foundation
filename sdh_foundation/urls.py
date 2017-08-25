@@ -18,8 +18,14 @@ from django.contrib import admin
 admin.autodiscover()
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
 from .views import home, about
 from users.views import contact_us, registration_demand
+from articles.sitemaps import ArticleSitemap
+
+sitemaps = {
+    'articles' : ArticleSitemap()
+}
 
 urlpatterns = [
     # Sidi Al-houari Home Page
@@ -43,6 +49,9 @@ urlpatterns = [
     # Registration urls
     url(r'^register/', view=registration_demand, name="register"),
 
+    # For SEO
+    url(r'^sitemap\.xml', sitemap, {'sitemaps': sitemaps}),
+    url(r'^robots\.txt', include('robots.urls')),
 ]
 
 if settings.DEBUG:

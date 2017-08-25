@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 # Display the foundation HomeScreen
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'index.html')
 
 # Display the foundation about page
 def about(request):

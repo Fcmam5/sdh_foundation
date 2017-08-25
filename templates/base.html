@@ -11,9 +11,11 @@
         <link href="{% static 'css/articles-style.css'%}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.green.min.css">
+        {% block meta %}
+        {% endblock %}
     </head>
     <body>
-        
+
         {% include 'components/navbar.html' %}
         {% block content %}
         {% endblock %}
@@ -23,5 +25,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
         <script src="{% static "js/index.js" %}"></script>
         <script src="{% static "js/owl.carousel2.thumbs.min.js"%}"></script>
+        {% include 'components/google-analytics.html' %}
+        
     </body>
 </html>

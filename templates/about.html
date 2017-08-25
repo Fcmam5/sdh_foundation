@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
+{% block meta %}
+  <meta name="description" content='{% trans "About sidi el Houari" %}'>
+{% endblock %}
 {% block content %}
 <main>
-    
+
       <section class="top-title text-center">
         <div class="top-title-text">
           <h1>
@@ -16,7 +20,7 @@
       <section class="profile container">
         <div class="row">
           <div class="col-sm-12 main-about-content">
-            
+
             <div class="row">
               <div class="col-sm-9">
                 <p>
@@ -24,7 +28,7 @@
                 </p>
               </div>
                <img class="col-sm-3 home-abt-img img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Avicenna_Portrait_on_Silver_Vase_-_Museum_at_BuAli_Sina_%28Avicenna%29_Mausoleum_-_Hamadan_-_Western_Iran_%287423560860%29.jpg/220px-Avicenna_Portrait_on_Silver_Vase_-_Museum_at_BuAli_Sina_%28Avicenna%29_Mausoleum_-_Hamadan_-_Western_Iran_%287423560860%29.jpg" alt="">
-              
+
               <div class="col-sm-12">
                 <h2>Who is sid al houari ? </h2>
                 <p>
@@ -70,5 +74,5 @@
 
         </div>
       </section>
-    </main>    
+    </main>
 {% endblock %}
