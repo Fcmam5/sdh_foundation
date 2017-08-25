@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'robots',
     'whoosh',
     'haystack',
+    'compressor',
     'articles',
     'events',
     'users',
@@ -140,9 +141,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATIC_ROOT = 'static'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_URL = STATIC_URL
+COMPRESS_ENABLED = True
+COMPRESS_CSS_FILTERS = ['compressor.filters.cssmin.CSSMinFilter']
 
 AUTH_USER_MODEL = 'users.CustomUser'
 ACCOUNT_AUTHENTICATION_METHOD = 'email'

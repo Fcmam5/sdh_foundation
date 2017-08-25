@@ -47,7 +47,7 @@ def index(request):
     'paginator': queryset,
     'page_request_variable' : page_request_variable
     }
-    return render(request, 'index.html', context)
+    return render(request, 'articles-list.html', context)
 
 # Create Post
 @csrf_protect

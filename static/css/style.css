@@ -67,7 +67,7 @@ main {
 #home-describ h1 {
     font-weight:100;
 }
-    
+
 #home-describ p {
     opacity:0.8;
 }
@@ -83,11 +83,11 @@ main {
 /*start HOME ABOUT style*/
 #sidi-houari-home-about {
     background-color:white;
-    background-image:url("../img/hi2.png");
+    background-image:url("/static/img/hi2.png");
     background-position: 10% 50%;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    
+
 }
 #sidi-houari-home-about h1 {
     font-size:300%;
@@ -99,13 +99,13 @@ main {
 /*end of HOME ABOUT style*/
 /*start ASSOCIATION about */
 #association-home-about {
-    background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),url("../img/background2.jpg");
+    background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),url("/static/img/background2.jpg");
     background-size:cover;
     background-attachment:fixed;
     background-repeat: no-repeat;
     color: white;
     font-size:100%;
-    line-height:2em 
+    line-height:2em
 }
 #association-home-about h1 {
     font-weight:300;
@@ -175,27 +175,27 @@ main {
     .main-about-content{
         text-align: center;
     }
-    
+
 }
 @media(min-width:768px){
     p {
         font-size:85%;
     }
-    
+
     #home-describ h1 {
         font-size:350%;
     }
     #sidi-houari-home-about h1 {
         font-size:220%;
     }
-    
+
     #sidi-houari-home-about img {
-        
+
         margin-bottom:2%;
     }
     #association-home-about {
         font-size:85%;
-    }    
+    }
 }
 @media(min-width:992px){
     p {
@@ -213,9 +213,9 @@ main {
     #sidi-houari-home-about {
         text-align:left;
     }
-    
+
     #sidi-houari-home-about img {
-        
+
         margin-bottom:2%;
     }
     #association-home-about {
@@ -232,4 +232,4 @@ main {
      #home-describ h1 {
         font-size:500%;
     }
-}  
+}
