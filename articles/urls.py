@@ -6,7 +6,7 @@ from .views import index, post_create, post_detail, post_update, post_delete, po
 
 urlpatterns = [
     # List of all articles
-    url(r'^$', view=index, name='index'),
+    url(r'^$', view=index, name='articles'),
 
     # Create an article
     url(r'^create/$', view=post_create, name='create'),
@@ -23,7 +23,3 @@ urlpatterns = [
     #Search engine
     url(r'^search/$', view= post_search, name='post_search'),
   ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
