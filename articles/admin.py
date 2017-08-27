@@ -6,6 +6,11 @@ from .models import Article, Categorie, Images
 from users.models import CustomUser
 from django.utils.translation import ugettext_lazy as _
 
+def publish_posts(modeladmin, request, queryset):
+    queryset.update(published=True)
+publish_posts.short_description = _("Publish selected posts")
+
+
 # Register your models here.
 class ProjectImageAdmin(admin.ModelAdmin):
     pass
@@ -19,10 +24,11 @@ class ProjectImageInline(admin.StackedInline):
 class BlogAdmin(admin.ModelAdmin):
     exclude = ['author']
     prepopulated_fields = {'slug': ('title',)}
-    list_display = ['title', 'updated', 'posted', 'author']
+    list_display = ['title', 'updated', 'posted', 'author','published']
     list_display_link = ['title']
     list_filter = ['categorie', 'posted', 'updated']
     inlines  = [ProjectImageInline,]
+    actions = [publish_posts]
     class Meta:
         model = Article
         verbose_name = _("article")
