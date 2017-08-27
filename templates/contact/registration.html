@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} Register {% endblock %}
+{% block meta %}
+
+{% endblock %}
+{% block content %}
+  <main>
+    <div class="container">
+      {% if sent %}
+        <h1>Your demand has been successfully sent we will contact you soon</h1>
+        <p>
+          <a href="/">Home</a>
+        </p>
+      {% else %}
+        <div class="row">
+          <div class="col-md-9 col-md-offset-1">
+            <h1>Register</h1>
+            <form action="." method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                {% if field.errors %}
+                  <div class="control-group error">
+                      <label class="control-label">{{ field.label }}</label>
+                      <div class="controls">{{ field }}
+                          <span class="help-inline">
+                              {% for error in  field.errors %}{{ error }}{% endfor %}
+                          </span>
+                      </div>
+                  </div>
+                {% else %}
+                  <div class="control-group">
+                      <label class="control-label">{{ field.label }}</label>
+                      <div class="controls">{{ field }}
+                          {% if field.help_text %}
+                              <p class="help-inline"><small>{{ field.help_text }}</small></p>
+                          {% endif %}
+                      </div>
+                  </div>
+              {% endif %}
+            </div>
+
+            {%endfor%}
+            <div class="form-group">
+              <button type="submit" class="btn btn-success">Send e-mail</button>
+            </div>
+            </form>
+          </div>
+
+        </div>
+      {% endif %}
+      </div>
+
+  </main>
+{% endblock %}
