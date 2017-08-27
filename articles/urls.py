@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^create/$', view=post_create, name='create'),
 
     # Detail of an article
-    url(r'^(?P<id>\d+)/$', view=post_detail, name='detail'),
+    url(r'^(?P<id>\d+)/$', view=post_detail, name='article'),
 
     # Update an article
     url(r'^update/(?P<id>\d+)/$', view=post_update, name='update'),

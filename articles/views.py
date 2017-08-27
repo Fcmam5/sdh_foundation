@@ -39,13 +39,13 @@ def index(request):
         queryset = paginator.page(paginator.num_pages)
 
     context = {
-    'categories': categories,
-    'posts' : posts,
-    'images' : images,
-    'events' : events,
-    'today' : today,
-    'paginator': queryset,
-    'page_request_variable' : page_request_variable
+        'categories': categories,
+        'posts' : posts,
+        'images' : images,
+        'events' : events,
+        'today' : today,
+        'paginator': queryset,
+        'page_request_variable' : page_request_variable
     }
     return render(request, 'articles-list.html', context)
 

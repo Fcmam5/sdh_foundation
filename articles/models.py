@@ -26,6 +26,7 @@ class Article(models.Model):
     author = models.ForeignKey(CustomUser, related_name='articles')
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
+    description = models.TextField()
     body = models.TextField()
     posted = models.DateTimeField(db_index=True, auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(db_index=True, auto_now_add=False, auto_now=True)
@@ -39,7 +40,7 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("detail", kwargs={"id" : self.id})
+        return reverse("article", kwargs={"id" : self.id})
 
     class Meta:
         ordering = ["-posted", "-updated"]
