@@ -57,6 +57,10 @@ urlpatterns = [
     url(r'^robots\.txt', include('robots.urls')),
 ]
 
+admin.site.site_header = 'SEFoundation'
+admin.site.site_title = 'SEF'
+admin.site.title = "SEF"
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
