@@ -19,7 +19,7 @@ LANGUAGES = (
 def upload_location(instance, filename):
     title = instance.post.title
     slug =  slugify(title)
-    return "articles/post_images/%s/%s" %(slug, filename)
+    return "articles/article%s/%s" %(instance.post.id, filename)
 
 # Create your models here.
 class Article(models.Model):
@@ -53,6 +53,12 @@ class Categorie(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name_plural = 'categories'
+
 class Images(models.Model):
     image = models.ImageField(upload_to = upload_location, verbose_name='Image')
     post = models.ForeignKey(Article, default = None)
+
+    class Meta:
+        verbose_name_plural = 'images'
