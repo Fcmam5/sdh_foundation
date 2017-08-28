@@ -85,13 +85,15 @@ def post_create(request):
 def post_detail(request, id):
     article = get_object_or_404(Article, pk=id)
     events = Event.objects.all().order_by('-id')
+    images = Images.objects.all().order_by('-id')
     today = timezone.now().date()
     context ={
         'article' : article,
         'events' : events,
-        'today' : today
+        'today' : today,
+        'images' : images
     }
-    return render(request, 'detail.html', context)
+    return render(request, 'article.html', context)
 # Display the first 2 posts in a specefic category
 
 # Create Post

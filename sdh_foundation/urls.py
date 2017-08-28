@@ -19,7 +19,7 @@ admin.autodiscover()
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
-from .views import home, about
+from .views import home, about, profile
 from users.views import contact_us, registration_demand
 from articles.sitemaps import ArticleSitemap
 
@@ -39,6 +39,9 @@ urlpatterns = [
 
     # List of all events
     url(r'^events/', include("events.urls")),
+
+    # User profile
+    url(r'^profile/', view=profile, name='profile'),
 
     # Admin stuff TODO: Change to lOGIN
     url(r'^admin/', admin.site.urls),

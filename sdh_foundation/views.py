@@ -10,3 +10,7 @@ def home(request):
 # Display the foundation about page
 def about(request):
     return render(request, 'about.html')
+
+# Display the User profile
+def profile(request):
+    return render(request, 'profile.html')
