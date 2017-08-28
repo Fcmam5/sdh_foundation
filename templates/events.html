@@ -3,37 +3,35 @@
 {% block content %}
     <main class="padding-top">
         <section class="container text-justify">
-            <div class="col-sm-offset-2 col-sm-8 profile active-event">
-                <p class="text-center">Coming soon..</p>
-                <div class="row">
-                    
-                    <div class="col-sm-offset-1 col-sm-10">
-                        <img class="col-sm-12"src="https://unsplash.it/1100" height="200px" alt="">
-                        <h2 class="">Do you think you are Reda Loukil</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat debitis voluptatibus repellat officia exercitationem ad recusandae quas eaque placeat. Distinctio laborum, et est, dolore fugit eos nostrum reprehenderit odit! Nobis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat debitis voluptatibus repellat officia exercitationem ad recusandae quas eaque placeat. Distinctio laborum, et est, dolore fugit eos nostrum reprehenderit odit! Nobis?</p>
+            {% if events %}
+              {% for event in events %}
+                {% if event.timing > today %}
+                    <div class="col-sm-offset-2 col-sm-8 profile active-event">
+                        <p class="text-center">Coming soon..</p>
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <img class="col-sm-12" src="{{ event.poster.url }}" height="200px" alt="">
+                                <h2 class="">{{event.title}}</h2>
+                                <p>{{event.content}}</p>
+                                <p>IN: {{event.place}} ON: {{ event.timing}} </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-offset-2 col-sm-8 profile past-event">
-                <p class="text-center">Past event</p>
-                <div class="row">
-                    <div class="col-sm-offset-1 col-sm-10">
-                        <img class="col-sm-12"src="https://unsplash.it/1100" height="200px" alt="">
-                        <h2 class="">Do you think you are Reda Loukil</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat debitis voluptatibus repellat officia exercitationem ad recusandae quas eaque placeat. Distinctio laborum, et est, dolore fugit eos nostrum reprehenderit odit! Nobis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat debitis voluptatibus repellat officia exercitationem ad recusandae quas eaque placeat. Distinctio laborum, et est, dolore fugit eos nostrum reprehenderit odit! Nobis?</p>
+                {% else %}
+                    <div class="col-sm-offset-2 col-sm-8 profile past-event">
+                        <p class="text-center">Past event</p>
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <img class="col-sm-12" src="{{ event.poster.url }}" height="200px" alt="">
+                                <h2 class="">{{event.title}}</h2>
+                                <p>{{event.content}}</p>
+                                <p>IN: {{event.place}} ON: {{ event.timing}} </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-offset-2 col-sm-8 profile past-event">
-                <p class="text-center">Past event</p>
-                <div class="row">
-                    <div class="col-sm-offset-1 col-sm-10 ">
-                        <img class="col-sm-12"src="https://unsplash.it/1100" height="200px" alt="">
-                        <h2 class="">Do you think you are Reda Loukil</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat debitis voluptatibus repellat officia exercitationem ad recusandae quas eaque placeat. Distinctio laborum, et est, dolore fugit eos nostrum reprehenderit odit! Nobis?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat debitis voluptatibus repellat officia exercitationem ad recusandae quas eaque placeat. Distinctio laborum, et est, dolore fugit eos nostrum reprehenderit odit! Nobis?</p>
-                    </div>
-                </div>
-            </div>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
         </section>
     </main>
 {% endblock %}
