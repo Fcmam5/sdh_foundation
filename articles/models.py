@@ -11,9 +11,9 @@ from django.utils.translation import ugettext_lazy as _
 from ckeditor_uploader.fields import RichTextUploadingField
 
 LANGUAGES = (
-    ('FRENCH','Fr'),
-    ('ARABE','Ar'),
-    ('ENGLISH','En'),
+    ('FRENCH','fr'),
+    ('ARABE','ar'),
+    ('ENGLISH','en'),
 )
 
 def upload_location(instance, filename):
@@ -58,7 +58,8 @@ class Categorie(models.Model):
 
 class Images(models.Model):
     image = models.ImageField(upload_to = upload_location, verbose_name='Image')
+    alt_text = models.CharField(max_length=100)
     post = models.ForeignKey(Article, default = None)
 
     class Meta:
-        verbose_name_plural = 'images'
+        verbose_name_plural = _('images')

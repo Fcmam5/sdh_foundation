@@ -21,9 +21,8 @@ from .forms import PostForm, ImageForm
 
 @csrf_protect
 def index(request):
-    posts = Article.objects.all().order_by('-posted')[:5]
+    posts = Article.objects.filter(published=True).order_by('-posted')
     categories = Categorie.objects.all().order_by('-id')
-    images = Images.objects.all().order_by('-id')
     events = Event.objects.all().order_by('-id')
     today = timezone.now().date()
     paginator = Paginator(posts, 2) # Show 2 contacts per page
@@ -41,7 +40,6 @@ def index(request):
     context = {
         'categories': categories,
         'posts' : posts,
-        'images' : images,
         'events' : events,
         'today' : today,
         'paginator': queryset,
