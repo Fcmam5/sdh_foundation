@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'whoosh',
     'haystack',
     'compressor',
+    'ckeditor',
+    'ckeditor_uploader',
     'articles',
     'events',
     'users',
@@ -178,3 +180,22 @@ HAYSTACK_CONNECTIONS = {
          'PATH': WHOOSH_INDEX,
     },
 }
+
+# ckEditor configuration
+CKEDITOR_UPLOAD_PATH = "media/"
+CKEDITOR_CONFIGS = {
+    'article_body_editor': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates', '-'],
+            ['Find', 'Replace', '-'],
+            ['Image', 'Table', 'HorizontalRule', 'PageBreak'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'BidiLtr', 'BidiRtl', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            '/',
+            ['Styles', 'Format', 'Font', 'FontSize','TextColor', 'BGColor', '-','Maximize', 'Link', 'Unlink'],
+            ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat'],
+        ],
+        
+    },
+}
+# CKEDITOR_ALLOW_NONIMAGE_FILES = False TODO: Discuss it with client

@@ -8,7 +8,7 @@ from users.models import CustomUser
 from django.contrib import admin
 from django.template.defaultfilters import slugify
 from django.utils.translation import ugettext_lazy as _
-
+from ckeditor_uploader.fields import RichTextUploadingField
 
 LANGUAGES = (
     ('FRENCH','Fr'),
@@ -27,7 +27,7 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
     description = models.TextField()
-    body = models.TextField()
+    body = RichTextUploadingField(config_name='article_body_editor')
     posted = models.DateTimeField(db_index=True, auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(db_index=True, auto_now_add=False, auto_now=True)
     categorie = models.ForeignKey('articles.Categorie', default=1)

@@ -55,6 +55,9 @@ urlpatterns = [
     # For SEO
     url(r'^sitemap\.xml', sitemap, {'sitemaps': sitemaps}),
     url(r'^robots\.txt', include('robots.urls')),
+
+    #CKEditor
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 admin.site.site_header = 'SEFoundation'
