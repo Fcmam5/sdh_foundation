@@ -10,6 +10,10 @@ def publish_posts(modeladmin, request, queryset):
     queryset.update(published=True)
 publish_posts.short_description = _("Publish selected posts")
 
+def unpublish_posts(modeladmin, request, queryset):
+    queryset.update(published=False)
+unpublish_posts.short_description = _("Unpublish selected posts")
+
 
 # Register your models here.
 class ProjectImageAdmin(admin.ModelAdmin):
@@ -28,7 +32,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_display_link = ['title']
     list_filter = ['categorie', 'posted', 'updated']
     inlines  = [ProjectImageInline,]
-    actions = [publish_posts]
+    actions = [publish_posts, unpublish_posts]
     class Meta:
         model = Article
         verbose_name = _("article")
