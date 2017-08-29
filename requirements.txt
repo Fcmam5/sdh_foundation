@@ -1,7 +1,9 @@
 Django==1.11
 django-appconf==1.0.2
+django-ckeditor==5.3.0
 django-compressor==2.2
 django-haystack==2.6.1
+django-js-asset==0.1.1
 django-robots==3.0
 olefile==0.44
 Pillow==4.2.1
