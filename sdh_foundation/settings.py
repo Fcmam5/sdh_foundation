@@ -181,7 +181,9 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 
-# ckEditor configuration
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+# CkEditor configuration
 CKEDITOR_UPLOAD_PATH = "media/"
 CKEDITOR_CONFIGS = {
     'article_body_editor': {
@@ -195,7 +197,7 @@ CKEDITOR_CONFIGS = {
             ['Styles', 'Format', 'Font', 'FontSize','TextColor', 'BGColor', '-','Maximize', 'Link', 'Unlink'],
             ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat'],
         ],
-        
+
     },
 }
 # CKEDITOR_ALLOW_NONIMAGE_FILES = False TODO: Discuss it with client

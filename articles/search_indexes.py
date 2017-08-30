@@ -6,6 +6,7 @@ class ArticleIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     title = indexes.CharField(model_attr='title')
     body = indexes.CharField(model_attr='body')
+    description = indexes.CharField(model_attr='description')
     pub_date = indexes.DateTimeField(model_attr='posted')
 
     def get_model(self):
