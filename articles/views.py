@@ -104,6 +104,8 @@ def post_delete(request, id):
 def post_search(request):
     form = SearchForm()
     events = Event.objects.all().order_by('-id')
+    categories = Categorie.objects.all().order_by('-id')
+
     if 'query' in request.GET:
         form = SearchForm(request.GET)
 
@@ -128,10 +130,13 @@ def post_search(request):
         queryset = paginator.page(1)
     except EmptyPage:
         queryset = paginator.page(paginator.num_pages)
-    return render(request,
-                  'articles/articles_search.html',
-                  {'form': form,
-                   'cd': cd,
-                   'paginator': queryset,
-                    'events' : events,
-                   'total_results': total_results})
+
+    context = {
+        'form': form,
+        'cd': cd,
+        'paginator': queryset,
+        'events' : events,
+        'categories' : categories,
+        'total_results': total_results}
+
+    return render(request, 'articles/articles_search.html', context)

@@ -1,4 +1,5 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 {% load i18n %}
 
 <main class="padding-top container">
@@ -19,9 +20,11 @@
       <div class="conatainer">
         <h4 class="h5">{% trans 'Filter by category:' %}</h4>
         <ul class="list-unstyled">
-          <li><a href="#">Category1</a></li>
-          <li><a href="#">Category1</a></li>
-          <li><a href="#">Category1</a></li>
+          {% for cat in categories %}
+            <li>
+              <a href="">{{ cat }}</a>
+            </li>
+          {% endfor %}
         </ul>
         <hr>
         <h4 class="h5">{% trans 'Filter by document source:' %}</h4>
