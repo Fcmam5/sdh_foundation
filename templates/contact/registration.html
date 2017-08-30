@@ -1,53 +1,59 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %} Register {% endblock %}
+{% load i18n %}
+{% block title %}{% trans 'Registration' %}{% endblock %}
 {% block meta %}
+<meta name="title" content='{% trans "Scientists registration demand" %}'>
+<meta name="description" content='{% trans "Send demand as a scientist for a publisher account, only historians and specialists applications are accpeted after a review by our staffs." %}'>
+<meta name="keywords" content="historian, مؤرخ, scientist, Oran, Wahren, وهران, سيدي الهواري, كلية الحضارة الإسلامية, تاريخ,الجزائر, Sidi El Houari">
 
 {% endblock %}
 {% block content %}
-  <main>
+  <main class="padding-top container">
     <div class="container">
       {% if sent %}
-        <h1>Your demand has been successfully sent we will contact you soon</h1>
-        <p>
-          <a href="/">Home</a>
-        </p>
+      <h1>{% trans 'Demand has been submitted successfully' %}</h1>
+      <p>{% trans "Your application has been submitted, our staffs will review your demand carefully and we will contact you soon. Until then, feel free to check out the following resources:" %}</p>
+      <ul>
+        <li><a href="/about">{% trans 'About Sidi El Houari' %}</a></li>
+        <li><a href="/articles">{% trans 'Our latest articles ' %}</a></li>
+        <li><a href="/events">{% trans "Sidi El Houari foundation's events" %}</a></li>
+      </ul>
       {% else %}
         <div class="row">
           <div class="col-md-9 col-md-offset-1">
-            <h1>Register</h1>
+            <h1>{% trans 'Register' %}</h1>
+            <p>{% trans 'Registration is only for scientists, historians and specialists. Registred users can publish in our website.' %}</p>
             <form action="." method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% for field in form %}
-            <div class="form-group">
                 {% if field.errors %}
-                  <div class="control-group error">
+                <div class="form-group has-error">
                       <label class="control-label">{{ field.label }}</label>
                       <div class="controls">{{ field }}
-                          <span class="help-inline">
+                          <span class="help-block">
                               {% for error in  field.errors %}{{ error }}{% endfor %}
                           </span>
                       </div>
-                  </div>
+                </div>
+
                 {% else %}
-                  <div class="control-group">
+                  <div class="form-group">
                       <label class="control-label">{{ field.label }}</label>
                       <div class="controls">{{ field }}
                           {% if field.help_text %}
-                              <p class="help-inline"><small>{{ field.help_text }}</small></p>
+                              <p class="help-block"><small>{{ field.help_text | safe }}</small></p>
                           {% endif %}
                       </div>
                   </div>
               {% endif %}
-            </div>
 
             {%endfor%}
             <div class="form-group">
-              <button type="submit" class="btn btn-success">Send e-mail</button>
+              <button type="submit" class="btn btn-success">{% trans 'Submit application' %}</button>
             </div>
             </form>
           </div>
-
         </div>
       {% endif %}
       </div>

@@ -30,3 +30,10 @@ EMAIL_HOST_PASSWORD = 'GMAIL APPLICATION CODE'
 ### To discuss
 - [ ] Create privacy policy and Terms of service pages
 - [ ] Create a good 404 Page
+
+## Extra Services (Out of service)
+أمور خارج عقدنا هذا، نقترح عليكم خدمات إضافية منها
+- [ ] Linking to your Social media (Creating accounts, Link website to them for SEO & Engagment), social buttons ?
+- [ ] Prepare articles for printing (Print Article page)
+- [ ] Add sponsors to events
+- [ ] Add captcha to contact and registration form for avoid spams
