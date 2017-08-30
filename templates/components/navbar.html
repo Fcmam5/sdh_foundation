@@ -1,3 +1,4 @@
+{% load i18n %}
 <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -8,10 +9,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                
+
                 <a href="{% url "home" %}"><img class="navbar-brand" src="https://logopond.com/logos/c41e886bf46fb87c62d17374c41d6f74.png" alt=""></a>
                 <!--<a class="navbar-brand" href="#">Lorem ipsum <strong>dolor sit</strong> amet, consectetur.</a>-->
-                
+
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -20,43 +21,43 @@
                     {% if request.user.is_authenticated %}
                         <li>
                             <a href="/profile">
-                                <i class="glyphicon glyphicon-user" aria-hidden="true"></i>    
+                                <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
                                 {{ request.user.first_name}}
                             </a>
                         </li>
                         <li>
                             <a href="/admin/logout">
-                                <i class="glyphicon glyphicon-off" aria-hidden="true"></i>    
-                                Logout
+                                <i class="glyphicon glyphicon-off" aria-hidden="true"></i>
+                                {% trans 'Logout' %}
                             </a>
                         </li>
                     {% else %}
                         <li>
-                            
+
                             <a href="/admin">
                                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                Login
+                                {% trans 'Login' %}
                             </a>
                         </li>
                         <li>
-                            
+
                             <a href="{% url "register" %}">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                Register
+                                {% trans 'Register' %}
                             </a>
                         </li>
                     {% endif %}
                 </ul>
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="{% url "about" %}">Sid AlHouari</a></li>
-                    <li><a href="{% url "articles" %}">Articles<span class="sr-only">(current)</span></a></li>
-                    <li><a href="{% url "events" %}">Events<span class="sr-only">(current)</span></a></li>
+                    <li><a href="{% url "about" %}">{% trans 'Sidi El Houari'%}</a></li>
+                    <li><a href="{% url "articles" %}">{% trans 'Articles' %}<span class="sr-only"></span></a></li>
+                    <li><a href="{% url "events" %}">{% trans 'Events' %}<span class="sr-only"></span></a></li>
                 </ul>
                </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
 <style>
-/*start NAVBAR style*/ 
+/*start NAVBAR style*/
 .navbar-default {
     position:fixed;
     border: none;
@@ -80,10 +81,10 @@ nav img{
     text-transform: capitalize;
 }
 .navbar-default .navbar-nav>li>a {
-    
+
     color: #27AE60;
     font-weight:600;
-} 
+}
 .navbar-default .navbar-nav>.active {
     padding:3px 10px;
 }
@@ -106,22 +107,17 @@ nav img{
 .navbar-brand {
     padding:5px 15px;
 }
-.index{
-    background-color:#27AE60;
-    border-radius:4px;
-    color:white;
-    padding:1%;
-}
+
 .flag {
     width:300px;
     height:200px;
     margin:50px;
 }
 .flag-element {
-    -webkit-animation:oscill 1s ease-in-out infinite alternate; 
-    -moz-animation:oscill 1s ease-in-out infinite alternate; 
-    -ms-animation:oscill 1s ease-in-out infinite alternate; 
-    animation:oscill 1s ease-in-out infinite alternate; 
+    -webkit-animation:oscill 1s ease-in-out infinite alternate;
+    -moz-animation:oscill 1s ease-in-out infinite alternate;
+    -ms-animation:oscill 1s ease-in-out infinite alternate;
+    animation:oscill 1s ease-in-out infinite alternate;
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Algeria.svg/2000px-Flag_of_Algeria.svg.png');
     background-size: 20px 100%;
     position:relative;
@@ -133,7 +129,7 @@ nav img{
 @-webkit-keyframes oscill {
     0% {
         top: 5%;
-    }        
+    }
     100% {
         top: -5%;
     }
@@ -141,7 +137,7 @@ nav img{
 @-moz-keyframes oscill {
     0% {
         top: 5%;
-    }        
+    }
     100% {
         top: -5%;
     }
@@ -149,7 +145,7 @@ nav img{
 @-ms-keyframes oscill {
     0% {
         top: 5%;
-    }        
+    }
     100% {
         top: -5%;
     }
@@ -157,7 +153,7 @@ nav img{
 @keyframes oscill {
     0% {
         top: 5%;
-    }        
+    }
     100% {
         top: -5%;
     }
@@ -165,4 +161,3 @@ nav img{
 /*end NAVBAR style*/
 
 </style>
-

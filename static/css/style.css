@@ -34,6 +34,68 @@ img {
     margin-top:3%;
     margin-bottom:3%;
 }
+
+/*start FOOTER style */
+footer {
+    background-color:#27332C;
+    padding:20px 50px;
+    color:white;
+    line-height:1.5em;
+}
+
+footer .container h1 {
+    text-transform: uppercase;
+    display:inline-block;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:10%;
+}
+
+footer .container li {
+    list-style: none;
+    opacity:0.8;
+    cursor: pointer;
+    font-size:12px;
+}
+
+footer .container li:hover {
+    opacity: 1;
+    transition:0.3s;
+}
+
+footer .container a {
+  color: white;
+}
+
+footer .container p {
+    opacity:0.6;
+    font-size:13px;
+}
+
+footer hr{
+  width: 50%;
+  height: 1px;
+  color: rgba(0,0,0,0.1);
+}
+
+footer .container {
+
+}
+
+footer .copyright{
+  padding:1% 5%;
+}
+
+footer .colomn {
+    padding: 10px 30px;
+    margin: 10px 0px;
+}
+
+footer .border-left{
+    border-left: 0.5px solid rgba(255,255,255, 0.1);
+}
+/*end FOOTER style */
+
 /*container style*/
 main {
     padding-top:7vh;

@@ -1,34 +1,35 @@
+{% load i18n %}
 <footer>
             <div class="container">
                 <div class="row content">
                     <div class="col-sm-3 colomn">
-                        <h1>aBOUT</h1>
+                        <h1>{% trans 'About'%}</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet tenetur quos quisquam velit repellendus animi iste amet Eveniet tenetur quos quisquam velit repellendus animi iste amet Eveniet tenetur quos quisquam velit</p>
                     </div>
                     <div class="col-sm-3 colomn border-left">
-                        <h1>know more</h1>
-                            <li>Home</li>
+                        <h1>{% trans 'know more' %}</h1>
+                            <li>{% trans 'Home' %}</li>
                             <br>
-                            <li>About</li>
+                            <li>{% trans 'About' %}</li>
                             <br>
-                            <li>The Foundation</li>
+                            <li>{% trans 'The Foundation' %}</li>
                             <br>
-                            <li>Partners</li>
+                            <li>{% trans 'Partners' %}</li>
                             <br>
                             <i class="fa fa-facebook-square" aria-hidden="true"></i>
                             <i class="fa fa-twitter-square" aria-hidden="true"></i>
                     </div>
                     <div class="col-sm-3 colomn border-left">
-                        <h1>contact</h1>
+                        <h1>{% trans 'Contact' %}</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <li><strong>Email: </strong>abc@gmail.com</li>
-                        <li><strong>Adress: </strong>53 &rlm;,cité les castors&rlm;, Oran</li>
-                        <li><strong>Chaine Nationale: </strong></li>
-                        <li><strong>Radio Nationale: </strong>Radio National</li>
+                        <li><strong>{% trans 'Email:' %} </strong>abc@gmail.com</li>
+                        <li><strong>{% trans 'Adress:' %} </strong>53 &rlm;,cité les castors&rlm;, Oran</li>
+                        <li><strong>{% trans 'Chaine Nationale:' %} </strong><a href="http://entv.dz/" target="_blank">ENTV</a></li>
+                        <li><strong>{% trans 'Radio Oran:' %} </strong><a href="http://www.radioalgerie.dz/player/ar/live/31-Oran" target="_blank">{% trans 'El Bahia' %} (92.7 FM)</li>
                     </div>
 
                     <div class="col-sm-3 colomn border-left">
-                        <img class="img-responsive" src="https://logopond.com/logos/c41e886bf46fb87c62d17374c41d6f74.png" alt="">
+                        <img class="img-responsive" src="https://logopond.com/logos/c41e886bf46fb87c62d17374c41d6f74.png" alt="{% trans 'Sidi El Houari foundation' %}">
                     </div>
                 </div>
                 <hr>
@@ -37,56 +38,3 @@
                 </p>
             </div>
 </footer>
-<style>
-/*start FOOTER style */
-footer {
-    background-color:#27332C;
-    padding:20px 50px;
-    color:white;
-    line-height:1.5em;
-
-}
-footer .container h1 {
-    text-transform: uppercase;
-    display:inline-block;
-    font-size:14px;
-    font-weight:700;
-    margin-bottom:10%;
-}
-footer .container li {
-    list-style: none;
-    opacity:0.8;
-
-
-    cursor: pointer;
-    font-size:12px;
-}
-footer .container li:hover {
-    opacity: 1;
-    transition:0.3s;
-}
-footer .container p {
-    opacity:0.6;
-    font-size:13px;
-}
-footer hr{
-  width: 50%;
-  height: 1px;
-  color: rgba(0,0,0,0.1);
-}
-footer .container {
-
-}
-.copyright{
-  padding:1% 5%;
-}
-.colomn {
-    padding: 10px 30px;
-    margin: 10px 0px;
-}
-.border-left{
-    border-left: 0.5px solid rgba(255,255,255, 0.1);
-}
-/*end FOOTER style */
-
-</style>
