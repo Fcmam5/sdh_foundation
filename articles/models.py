@@ -11,9 +11,9 @@ from django.utils.translation import ugettext_lazy as _
 from ckeditor_uploader.fields import RichTextUploadingField
 
 LANGUAGES = (
-    ('FRENCH','fr'),
-    ('ARABE','ar'),
-    ('ENGLISH','en'),
+    ('ARABE','العربية'),
+    ('ENGLISH','English'),
+    ('FRENCH','Français'),
 )
 
 def upload_location(instance, filename):
@@ -24,17 +24,19 @@ def upload_location(instance, filename):
 # Create your models here.
 class Article(models.Model):
     author = models.ForeignKey(CustomUser, related_name='articles')
-    title = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=100, unique=True)
-    description = models.TextField()
-    body = RichTextUploadingField(config_name='article_body_editor')
+    title = models.CharField(_('Title'),max_length=100)
+    slug = models.SlugField(_('Slug'),max_length=100, unique=True)
+    description = models.TextField(_('Description'),
+                help_text=_('A short description to display in search restuls'))
+    body = RichTextUploadingField(_('Body'),config_name='article_body_editor')
     posted = models.DateTimeField(db_index=True, auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(db_index=True, auto_now_add=False, auto_now=True)
     categorie = models.ForeignKey('articles.Categorie', default=1)
-    sources = models.TextField(null = True)
-    document = models.FileField(blank = True, null = True)
-    language = models.CharField(max_length = 60,choices=LANGUAGES, default = 'ARABE')
-    published = models.BooleanField(default = False)
+    document = models.FileField(_('Document'),blank = True, null = True,
+                help_text=_('Document to join in article for download'))
+    language = models.CharField(_('Language'),max_length = 60,choices=LANGUAGES, default = 'ARABE')
+    published = models.BooleanField(_('Published'),
+                    default = False, help_text="Choose whether to publish or draft the article")
 
     def __str__(self):
         return self.title
@@ -44,11 +46,12 @@ class Article(models.Model):
 
     class Meta:
         ordering = ["-posted", "-updated"]
-        verbose_name_plural = _("articles")
+        verbose_name_plural = _('Articles')
+        verbose_name = _('Article')
 
 class Categorie(models.Model):
-    title = models.CharField(max_length=100, db_index=True)
-    slug = models.SlugField(max_length=100, db_index=True, unique = True)
+    title = models.CharField(_('Title'),max_length=100, db_index=True)
+    slug = models.SlugField(_('Slug'),max_length=100, db_index=True, unique = True)
 
     def __str__(self):
         return self.title
@@ -58,8 +61,10 @@ class Categorie(models.Model):
 
 class Images(models.Model):
     image = models.ImageField(upload_to = upload_location, verbose_name='Image')
-    alt_text = models.CharField(max_length=100)
+    alt_text = models.CharField(_('Image description'),max_length=100,
+        help_text=_('Descripe your image, this field is important to search engines and for web accessibility'))
     post = models.ForeignKey(Article, default = None)
 
     class Meta:
         verbose_name_plural = _('images')
+        verbose_name = _('image')

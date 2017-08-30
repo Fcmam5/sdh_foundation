@@ -1,10 +1,10 @@
 from django import forms
 from .models import Article, Categorie, Images
+from django.utils.translation import ugettext_lazy as _
 
-# Write your forms here
 class PostForm(forms.ModelForm):
     title = forms.CharField(max_length=128)
-    body = forms.CharField(max_length=245, label="Item Description.")
+    body = forms.CharField(max_length=245, label= _("Item Description."))
 
     class Meta:
         model = Article

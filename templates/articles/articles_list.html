@@ -1,5 +1,6 @@
 {% extends 'articles/articles_base.html' %}
 {% block searchbar %}
+{% load i18n %}
 <form action="search" method="get">
   <div class="row">
     <div class="form-group col-sm-offset-3 col-sm-4">
@@ -49,10 +50,11 @@
  </div>
  {% empty%}
  <div class="text-center">
-   <h2>Sorry!</h2>
-   <p>We couldn't find any results for your query</p>
+   <h2>{% trans 'Sorry!' %}</h2>
+   <p>{% trans 'We couldn\'t find any results for your query' %}</p>
  </div>
 {% endfor %}
+
 {% if paginator.has_other_pages %}
   <ul class="pagination">
     {% if paginator.has_previous %}
@@ -62,7 +64,7 @@
     {% endif %}
     {% for i in paginator.paginator.page_range %}
       {% if paginator.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      <li class="active"><span>{{ i }} <span class="sr-only">{% trans '(current)' %}</span></span></li>
       {% else %}
         <li><a href="?page={{ i }}">{{ i }}</a></li>
       {% endif %}

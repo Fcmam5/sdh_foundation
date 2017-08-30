@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+{% load i18n %}
 
 <main class="padding-top container">
   <!--SEARCH BAR-->
@@ -16,20 +17,20 @@
     <!--LIST SIDE-->
     <div class="list col-sm-3 col-xs-12">
       <div class="conatainer">
-        <h4 class="h5">Filter by category:</h4>
+        <h4 class="h5">{% trans 'Filter by category:' %}</h4>
         <ul class="list-unstyled">
           <li><a href="#">Category1</a></li>
           <li><a href="#">Category1</a></li>
           <li><a href="#">Category1</a></li>
         </ul>
         <hr>
-        <h4 class="h5">Filter by document source:</h4>
+        <h4 class="h5">{% trans 'Filter by document source:' %}</h4>
         <ul class="list-unstyled">
           <li>
-            <a href="#">Items in the archive (998,635)</a>
+            <a href="#">{% trans 'Items in the archive (998,635)' %}</a>
           </li>
           <li>
-            <a href="#">Articles from our experts (125) </a>
+            <a href="#">{% trans 'Articles from our experts (125)' %}</a>
           </li>
         </ul>
       </div>

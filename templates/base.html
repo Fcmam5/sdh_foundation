@@ -1,9 +1,11 @@
 {% load staticfiles %}
 {% load compress %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title></title>
+        <title>{% block title%}{% endblock %}</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="https://logopond.com/logos/c41e886bf46fb87c62d17374c41d6f74.png">
@@ -14,6 +16,9 @@
         {% compress css %}
         <link href="{% static 'css/style.css'%}" rel="stylesheet">
         <link href="{% static 'css/articles-style.css'%}" rel="stylesheet">
+        {% if LANGUAGE_CODE == 'ar' %}
+        <link href="{% static 'css/rtl.css'%}" rel="stylesheet">
+        {% endif%}
         {% endcompress %}
         {% block meta %}
         {% endblock %}
