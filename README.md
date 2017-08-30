@@ -28,8 +28,5 @@ EMAIL_HOST_PASSWORD = 'GMAIL APPLICATION CODE'
 - [ ] Create Google analytics and add me as an Admin
 
 ### To discuss
-- [ ] Add image models to admin page for writing Alt text (for SEO & Web accessibility)
-- [ ] Add description to Article model and display in a meta tag
 - [ ] Create privacy policy and Terms of service pages
 - [ ] Create a good 404 Page
-- [ ] Edit page search results page
