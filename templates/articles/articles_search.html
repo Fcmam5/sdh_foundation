@@ -1,0 +1,60 @@
+{% extends 'articles/articles_base.html' %}
+{% block searchbar %}
+<form action="." method="get">
+  <div class="row">
+    <div class="form-group col-sm-offset-3 col-sm-4">
+      <input name="query" type="text" class="form-control" placeholder="Search" value="{{cd.qury}}">
+    </div>
+    <div class="form-group col-sm-2">
+      <button class="btn btn-default btn-block"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
+{% block articles %}
+<h3>Found {{ total_results }} result{{ total_results|pluralize}} for "{{ cd.query }}"</h3>
+<!--  -->
+{% for result in results %}
+  {% with post=result.object %}
+    <div class="panel panel-default article-element">
+      <div class="panel-body">
+        <div class="row">
+          {% if post.images_set.all %}
+          <div class="col-sm-3">
+            <a href="{{ post.get_absolute_url }}">
+              {% with post.images_set.all|first as image %}
+                <img src="{{ image.image.url }}" alt="{{ image.alt_text }}" class="img-responsive">
+                {% endwith %}
+            </a>
+          </div>
+          {% else %}
+          <div class="col-sm-3">
+            <a href="{{ post.get_absolute_url }}">
+              <img src="/static/img/no-img.png" alt="{{ post.title }}" class="img-responsive">
+            </a>
+          </div>
+          {% endif %}
+          <div class="col-sm-9">
+            <h3 class="element-title h4">
+              <a href="{{ post.get_absolute_url }}"> {{ post.title }}</a>
+            </h3>
+            <p>{{post.categorie}}</p>
+            <p class="element-description">
+            {{post.description}}
+            </p>
+            <div class="element-footer">
+              Posted by <a href="#">{{post.author.firstname}}</a> on {{post.posted}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+ </div>
+ {% endwith %}
+ {% empty%}
+ <div class="text-center">
+   <h2>Sorry!</h2>
+   <p>We couldn't find any results for your query</p>
+ </div>
+{% endfor %}
+{% endblock %}

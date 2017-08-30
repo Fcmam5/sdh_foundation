@@ -45,7 +45,7 @@ def index(request):
         'paginator': queryset,
         'page_request_variable' : page_request_variable
     }
-    return render(request, 'articles-list.html', context)
+    return render(request, 'articles/articles_list.html', context)
 
 # Create Post
 @csrf_protect
@@ -125,7 +125,7 @@ def post_search(request):
         results = ""
         total_results = 0
     return render(request,
-                  'search/search.html',
+                  'articles/articles_search.html',
                   {'form': form,
                    'cd': cd,
                    'results': results,

@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block content %}
+
+<main class="padding-top container">
+  <!--SEARCH BAR-->
+  {% block searchbar %}
+  {% endblock %}
+  <!--END SEARCH BAR-->
+  <section>
+    <!--ARTICLES SIDE-->
+    <div class="container">
+      <div class="col-sm-9">
+        {% block articles %}
+        {% endblock %}
+      </div>
+    <!--ARTICLES SIDE-->
+    <!--LIST SIDE-->
+    <div class="list col-sm-3 col-xs-12">
+      <div class="conatainer">
+        <h4 class="h5">Filter by category:</h4>
+        <ul class="list-unstyled">
+          <li><a href="#">Category1</a></li>
+          <li><a href="#">Category1</a></li>
+          <li><a href="#">Category1</a></li>
+        </ul>
+        <hr>
+        <h4 class="h5">Filter by document source:</h4>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#">Items in the archive (998,635)</a>
+          </li>
+          <li>
+            <a href="#">Articles from our experts (125) </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--LIST SIDE-->
+    </div>
+  </section>
+</main>
+<br>
+<br>
+{% endblock %}
