@@ -15,4 +15,4 @@ class ArticleIndex(indexes.SearchIndex, indexes.Indexable):
     # TODO: Get only non-drafted articles
     def index_queryset(self, using=None):
         """Used when the entire index for model is updated."""
-        return self.get_model().objects.all()
+        return self.get_model().objects.filter(published=True)
