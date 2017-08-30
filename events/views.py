@@ -32,3 +32,10 @@ def index(request):
     'page_request_variable' : page_request_variable
     }
     return render(request, 'events.html', context)
+
+def event_detail(request, id):
+    event = get_object_or_404(Event, pk=id)
+    context ={
+        'event' : event
+    }
+    return render(request, 'event_detail.html', context)

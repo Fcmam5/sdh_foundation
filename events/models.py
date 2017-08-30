@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.core.urlresolvers import reverse
 from django.utils.encoding import smart_unicode
 from django.db import models
 from django.utils import timezone
@@ -20,8 +21,8 @@ class Event(models.Model):
     def __str__(self):
         return self.title
 
-    def __unicode__(self): 
-        return smart_unicode(self.title)
+    def get_absolute_url(self):
+        return reverse("event", kwargs={"id" : self.id})
 
     class Meta:
         verbose_name_plural = 'events'

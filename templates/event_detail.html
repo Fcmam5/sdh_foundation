@@ -1,0 +1,33 @@
+{% extends "base.html"%}
+
+{% block content %}
+<main class="padding-top">
+    <section class="profile container">
+                   {% if event.timing > today %}
+                    <div class="col-sm-offset-2 col-sm-8 profile active-event">
+                        <p class="text-center">Coming soon..</p>
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <img class="col-sm-12" src="{{ event.poster.url }}" height="200px" alt="">
+                                <h2 class="">{{event.title}}</h2>
+                                <p>{{event.content}}</p>
+                                <p>IN: {{event.place}} ON: {{ event.timing}} </p>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="col-sm-offset-2 col-sm-8 profile past-event">
+                        <p class="text-center">Past event</p>
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <img class="col-sm-12" src="{{ event.poster.url }}" height="200px" alt="">
+                                <h2 class="">{{event.title}}</h2>
+                                <p>{{event.content}}</p>
+                                <p>IN: {{event.place}} ON: {{ event.timing}} </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+    </section>
+</main>
+{% endblock %}

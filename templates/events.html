@@ -10,8 +10,12 @@
                         <p class="text-center">Coming soon..</p>
                         <div class="row">
                             <div class="col-sm-offset-1 col-sm-10">
-                                <img class="col-sm-12" src="{{ event.poster.url }}" height="200px" alt="">
-                                <h2 class="">{{event.title}}</h2>
+                                <a href="{{ event.get_absolute_url }}">
+                                    <img class="col-sm-12" src="{{ event.poster.url }}" height="200px" alt="">
+                                </a>
+                                <a href="{{ event.get_absolute_url }}">
+                                    <h2 class="">{{event.title}}</h2>                                
+                                </a>
                                 <p>{{event.content}}</p>
                                 <p>IN: {{event.place}} ON: {{ event.timing}} </p>
                             </div>
@@ -22,8 +26,12 @@
                         <p class="text-center">Past event</p>
                         <div class="row">
                             <div class="col-sm-offset-1 col-sm-10">
-                                <img class="col-sm-12" src="{{ event.poster.url }}" height="200px" alt="">
-                                <h2 class="">{{event.title}}</h2>
+                                <a href="{{ event.get_absolute_url }}">
+                                    <img class="col-sm-12" src="{{ event.poster.url }}" height="200px" alt="">
+                                </a>
+                                <a href="{{ event.get_absolute_url }}">
+                                    <h2 class="">{{event.title}}</h2>                                
+                                </a>
                                 <p>{{event.content}}</p>
                                 <p>IN: {{event.place}} ON: {{ event.timing}} </p>
                             </div>
