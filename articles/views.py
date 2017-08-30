@@ -24,10 +24,8 @@ def index(request):
     posts = Article.objects.filter(published=True).order_by('-posted')
     categories = Categorie.objects.all().order_by('-id')
     events = Event.objects.all().order_by('-id')
-    today = timezone.now().date()
-    paginator = Paginator(posts, 2) # Show 2 contacts per page
-    page_request_variable = 'page'
-    page = request.GET.get(page_request_variable)
+    paginator = Paginator(posts, 10)
+    page = request.GET.get('page', 1)
     try:
         queryset = paginator.page(page)
     except PageNotAnInteger:
@@ -39,11 +37,8 @@ def index(request):
 
     context = {
         'categories': categories,
-        'posts' : posts,
         'events' : events,
-        'today' : today,
         'paginator': queryset,
-        'page_request_variable' : page_request_variable
     }
     return render(request, 'articles/articles_list.html', context)
 
@@ -108,6 +103,7 @@ def post_delete(request, id):
 @csrf_protect
 def post_search(request):
     form = SearchForm()
+    events = Event.objects.all().order_by('-id')
     if 'query' in request.GET:
         form = SearchForm(request.GET)
 
@@ -124,9 +120,18 @@ def post_search(request):
         cd = ''
         results = ""
         total_results = 0
+    paginator = Paginator(results, 10)
+    page = request.GET.get('page', 1)
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:
+        queryset = paginator.page(1)
+    except EmptyPage:
+        queryset = paginator.page(paginator.num_pages)
     return render(request,
                   'articles/articles_search.html',
                   {'form': form,
                    'cd': cd,
-                   'results': results,
+                   'paginator': queryset,
+                    'events' : events,
                    'total_results': total_results})
