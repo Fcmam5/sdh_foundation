@@ -14,7 +14,7 @@
 
 .element-title a{
   color: #333;
-  
+
   font-weight: 500;
   line-height: 1.1;
 }
@@ -41,7 +41,7 @@
 .list ul a{
   color: #27ae61;
   font-size: 90%;
-  
+
 }
 .list ul a:hover{
   text-decoration:none;
@@ -65,7 +65,7 @@
 }
 /* CAROUSEL STYLE */
 .owl-carousel{
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
 .owl-carousel .owl-item, .owl-carousel .item {
@@ -76,6 +76,7 @@
     transform-style: initial;
     height: 100%;
     object-fit: cover;
+    margin-top: 0%;
 }
 
 .owl-thumb-item img {
@@ -109,6 +110,36 @@
     opacity: 1;
 }
 
+.no-carousel img{
+  margin-top: 20px;
+  height: 60vh;
+  width: 100%;
+  opacity: .7;
+}
+
+.citation{
+  background-color: #f9f7f7;
+  padding: 1%;
+}
+
+.poup-viewer{
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  padding: 5%;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+}
+
+.poup-viewer img{
+  display: block;
+  margin: auto;
+  width: 100%;
+}
 
 /* CAROUSEL END STYLE */
 /* PORTFOLIO STYLE */
@@ -142,7 +173,7 @@
     font-size: 20px;
     text-align: center;
     top: 50%;
-    
+
     color: white;
 }
 #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content i {

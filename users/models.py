@@ -11,7 +11,7 @@ from django.contrib.auth.models import BaseUserManager
 
 
 class CustomUserManager(BaseUserManager):
-    
+
     def _create_user(self, email , password,
                      is_staff, is_superuser, **extra_fields):
         """
@@ -75,12 +75,12 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def get_absolute_url(self):
         return "/users/%s/" % urlquote(self.email)
 
-    # def get_full_name(self):
-    #     """
-    #     Returns the first_name plus the last_name, with a space in between.
-    #     """
-    #     full_name = '%s %s' % (self.first_name, self.last_name)
-    #     return full_name.strip()
+    def get_full_name(self):
+        """
+        Returns the first_name plus the last_name, with a space in between.
+        """
+        full_name = '%s %s' % (self.first_name, self.last_name)
+        return full_name.strip()
 
     def get_short_name(self):
         "Returns the short name for the user."

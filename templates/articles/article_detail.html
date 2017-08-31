@@ -1,0 +1,112 @@
+{% extends "base.html"%}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% block title %}{{ article.title }} - Sidi El Houari foundation{% endblock%}
+{% block meta%}
+{% endblock%}
+{% block content %}
+<main class="padding-top">
+    <section class="profile container">
+
+
+        <div class="article-cover">
+          <div class="article-header">
+            <h2>{{ article.title }}</h2>
+            <p class="article-date green">{% trans 'Last update on: '%} {{ article.updated | date}}</p>
+
+            {% if article.images_set.all %}
+            <div class="owl-carousel">
+                {% for img in article.images_set.all|slice:":4" %}
+                <div class="item">
+                  <img src="{{img.image.url}}" alt="{{img.alt_text}}">
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="no-carousel">
+              {# TODO Change this default image #}
+              <img src="https://unsplash.it/1001/300" alt="{% trans 'This article has no images' %}">
+            </div>
+            {% endif%}
+
+        </div>
+
+          <hr align="center">
+          <div class="text-center cover-actions">
+            {% if article.document %}
+            <p>
+              {% blocktrans with images=article.images_set.all count nb=article.images_set.all|length %}
+              This article provides {{ nb }} image, and a document for download
+              {% plural %}
+              This article provides {{ nb }} images, and a document for download
+              {% endblocktrans%}
+            </p>
+
+            {% if LANGUAGE_CODE == 'ar' %}
+            <a href="#sharer" class="btn btn-default">{% trans 'Share this page' %} <span class="glyphicon glyphicon-share"></span></a>
+            <a href="{{ article.document.url }}" class="btn btn-default" download>
+              {% trans 'Download file' %} <span class="glyphicon glyphicon-download-alt"></span>
+            </a>
+            {% else %}
+            <a href="{{ article.document.url }}" class="btn btn-default" download>
+              <span class="glyphicon glyphicon-download-alt"></span> {% trans 'Download file' %}
+            </a>
+            <a href="#sharer" class="btn btn-default">
+              <span class="glyphicon glyphicon-share"></span> {% trans 'Share this page' %}
+            </a>
+            {% endif %}
+
+            {% else %}
+
+            <p>
+              {% blocktrans with images=article.images_set.all count nb=article.images_set.all|length %}
+              This article provides {{ nb }} image.
+              {% plural %}
+              This article provides {{ nb }} images.
+              {% endblocktrans%}
+            </p>
+            {% if LANGUAGE_CODE == 'ar' %}
+            <a href="#sharer" class="btn btn-default">{% trans 'Share this page' %} <span class="glyphicon glyphicon-share"></span></a>
+            <button type="button" class="btn btn-default disabled">
+              {% trans 'Download file' %} <span class="glyphicon glyphicon-download-alt"></span>
+            </button>
+            {% else %}
+            <button type="button" class="btn btn-default disabled">
+              <span class="glyphicon glyphicon-download-alt"></span> {% trans 'Download file' %}
+            </button>
+            <a href="#sharer" class="btn btn-default">
+              <span class="glyphicon glyphicon-share"></span> {% trans 'Share this page' %}
+            </a>
+            {% endif %}
+            {% endif %}
+          </div>
+          <hr align="center">
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="article-content">
+          {{ article.body | safe }}
+        </div>
+        <div class="clearfix"></div>
+        <hr>
+
+        <div class="">
+          <h4>Cite this article</h4>
+          <p class="citation">
+            {% blocktrans with author=article.author.get_full_name title=article.title posted_date=article.posted|date %}
+            {{ author }}, "{{ title }}" in <em>Sidi El Houari foundation's website</em> {{ posted_date }},
+            {% endblocktrans%}
+            <br>
+            <a href="#" id="current-page-citation"></a>.
+          </p>
+        </div>
+        <div class="text-center">
+          <h4 id="sharer">{% trans 'Share on social media' %}</h4>
+          <span id="twitter">T</span> <span id="facebook">F</span>
+        </div>
+      </div>
+    </section>
+    <div class="poup-viewer">
+    </div>
+</main>
+{% endblock %}

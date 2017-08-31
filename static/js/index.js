@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
   var pathname = window.location.pathname;
+  var currentURL = window.location;
   $('.nav > li > a[href="'+pathname+'"]').parent().addClass('active');
 
   $('.jump-to').click(function () {
@@ -12,7 +13,6 @@ $(document).ready(function(){
     return false;
   });
 
-  var currentURL = window.location;
   $(".owl-carousel").owlCarousel({
             items: 1,
             autoplay:true,
@@ -41,5 +41,9 @@ $(document).ready(function(){
               e.stopPropagation();
             });
         });
+
+  $('#current-page-citation').attr('href', currentURL).text(currentURL)
+  $("#twitter").html("<a href='https://twitter.com/intent/tweet?url="+ currentURL +"&text=" + document.title + "' target='_blank'>Twitter</a>")
+  $("#facebook").html("<a href='https://www.facebook.com/sharer/sharer.php?u="+ currentURL + "' target='_blank'>Facebook</a>")
 
 });
