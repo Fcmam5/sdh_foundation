@@ -5,7 +5,8 @@
     <div class="container col-sm-12  profile">
       <div class="row">
           <div class="col-sm-4">
-            <img src="{{ user.image.url }}" class="img-responsive ">
+            <img src="{% if user.image %} {{ user.image.url }} {% else %} {{ user.get_gavatar }} {% endif %}"
+                 class="img-responsive" alt="{{ user.get_full_name }} profile picture">
         </div>
         <div class="col-sm-8 container">
         <br>
@@ -66,7 +67,11 @@
          <a href="{{ user.cv }}" download="cv.pdf">Télécharger le fichier (.pdf)</a>
     </div>
     <div class="profile-describ" id="portfolio">
+      <h3 class="text-center">Latest articles</h3>
     <div class="row">
+
+{% for article in user.article_set.all|slice:":6"%}
+      {% with article.image_set.all|first as article_image %}
       <div class="col-sm-4 portfolio-item">
           <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
           <div class="portfolio-hover">
@@ -74,77 +79,18 @@
                   <i class="fa fa-link fa-3x"></i>
               </div>
           </div>
-          <img src="https://unsplash.it/1100" class="img-responsive portfolio-image" alt=""></a>
+          <!-- TODO: Change  https://unsplash.it/1100 with /static/img/no-image.png -->
+          <img src="{% if article_image %} {{article_image}} {%else%} https://unsplash.it/1100 {%endif%}" class="img-responsive portfolio-image" alt="{{ article.title }} poster"></a>
           <div class="portfolio-caption">
-            <h4>Round Icons</h4>
+            <h4>{{ article.title }}</h4>
           </div>
       </div>
-
-      <div class="col-sm-4 portfolio-item">
-          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-          <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                  <i class="fa fa-link fa-3x"></i>
-              </div>
-          </div>
-          <img src="https://unsplash.it/1100" class="img-responsive portfolio-image" alt=""></a>
-          <div class="portfolio-caption">
-            <h4>Round Icons</h4>
-          </div>
+      {% endwith %}
+      {% empty %}
+      <div class="col-sm 12">
+        <p class="text-center">This user didn't publish any article yet</p>
       </div>
-
-      <div class="col-sm-4 portfolio-item">
-          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-          <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                  <i class="fa fa-link fa-3x"></i>
-              </div>
-          </div>
-          <img src="https://unsplash.it/1100" class="img-responsive portfolio-image" alt=""></a>
-          <div class="portfolio-caption">
-            <h4>Round Icons</h4>
-          </div>
-      </div>
-
-      <div class="col-sm-4 portfolio-item">
-          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-          <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                  <i class="fa fa-link fa-3x"></i>
-              </div>
-          </div>
-          <img src="https://unsplash.it/1100" class="img-responsive portfolio-image" alt=""></a>
-          <div class="portfolio-caption">
-            <h4>Round Icons</h4>
-          </div>
-      </div>
-
-      <div class="col-sm-4 portfolio-item">
-          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-          <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                  <i class="fa fa-link fa-3x"></i>
-              </div>
-          </div>
-          <img src="https://unsplash.it/1100" class="img-responsive portfolio-image" alt=""></a>
-          <div class="portfolio-caption">
-            <h4>Round Icons</h4>
-          </div>
-      </div>
-
-      <div class="col-sm-4 portfolio-item">
-          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-          <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                  <i class="fa fa-link fa-3x"></i>
-              </div>
-          </div>
-          <img src="https://unsplash.it/1100" class="img-responsive portfolio-image" alt=""></a>
-          <div class="portfolio-caption">
-            <h4>Round Icons</h4>
-          </div>
-      </div>
-
+      {% endfor %}
     </div>
  </div>
 

@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.core.mail import EmailMessage
 from .forms import ContactByMailForm, RegistrationDemandForm
+from events.models import Event
 from .models import CustomUser
 
 # Create your views here.
@@ -69,4 +70,9 @@ def registration_demand(request):
 
 def profile_view(request, id):
     user = get_object_or_404(CustomUser, pk=id)
-    return render(request, 'profile.html', {'user': user})
+    events = Event.objects.all().order_by('-id') # TODO: Get active events
+    context = {
+        'user': user,
+        'events': events
+    }
+    return render(request, 'profile.html', context)

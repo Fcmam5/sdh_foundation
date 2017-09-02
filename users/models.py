@@ -5,6 +5,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
+import hashlib
 
 class CustomUserManager(BaseUserManager):
 
@@ -46,15 +47,15 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         (2, _('Staff'))
     }
 
-    email = models.EmailField(_('email address'), max_length=254, unique=True)
-    first_name = models.CharField(max_length = 25)
-    last_name = models.CharField(max_length = 25)
-    image = models.ImageField(blank = True)
-    phone_number = models.CharField(max_length = 25)
-    speciality = models.CharField(max_length = 25 , blank = True)
-    grad = models.CharField(max_length = 25 , blank = True)
-    cv = models.FileField(blank = True)
-    account_type = models.IntegerField(default=1, choices=ACCOUNT_TYPES)
+    email = models.EmailField(_('Email address'), max_length=254, unique=True)
+    first_name = models.CharField(_('First name'),max_length = 25)
+    last_name = models.CharField(_('Last name'),max_length = 25)
+    image = models.ImageField(_('Photo'),blank = True)
+    phone_number = models.CharField(_('Phone number'),max_length = 25)
+    speciality = models.CharField(_('Speciality'),max_length = 25 , blank = True)
+    grad = models.CharField(_('Academic rank'),max_length = 25 , blank = True)
+    cv = models.FileField(_('CV'),blank = True)
+    account_type = models.IntegerField(_('Account typ'),default=1, choices=ACCOUNT_TYPES)
 
 
     is_superuser = models.BooleanField(_('superuser status'), default=False,
@@ -98,3 +99,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         Sends an email to this User.
         """
         send_mail(subject, message, from_email, [self.email])
+
+    def get_gavatar(self):
+        return '%s/%s?s=400' % ("https://www.gravatar.com/avatar", hashlib.md5(self.email).hexdigest())

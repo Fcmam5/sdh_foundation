@@ -23,13 +23,13 @@ def upload_location(instance, filename):
 
 # Create your models here.
 class Article(models.Model):
-    author = models.ForeignKey(CustomUser, related_name='articles')
+    author = models.ForeignKey(CustomUser)
     title = models.CharField(_('Title'),max_length=100)
     slug = models.SlugField(_('Slug'),max_length=100, unique=True)
     description = models.TextField(_('Description'),
                 help_text=_('A short description to display in search restuls'))
     body = RichTextUploadingField(_('Body'),config_name='article_body_editor')
-    posted = models.DateTimeField(db_index=True, auto_now_add=True, auto_now=False)
+    posted = models.DateTimeField(_('Posted'),db_index=True, auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(verbose_name=_('Last update'),db_index=True, auto_now_add=False, auto_now=True)
     categorie = models.ForeignKey('articles.Categorie', default=1)
     document = models.FileField(_('Document'),blank = True, null = True,
@@ -57,10 +57,11 @@ class Categorie(models.Model):
         return self.title
 
     class Meta:
-        verbose_name_plural = 'categories'
+        verbose_name_plural = _('categories')
+        verbose_name = _('categorie')
 
 class Images(models.Model):
-    image = models.ImageField(upload_to = upload_location, verbose_name='Image')
+    image = models.ImageField(upload_to = upload_location)
     alt_text = models.CharField(_('Image description'),max_length=100,
         help_text=_('Descripe your image, this field is important to search engines and for web accessibility'))
     post = models.ForeignKey(Article, default = None)
