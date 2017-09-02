@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'compressor',
     'ckeditor',
     'ckeditor_uploader',
+    'location_field.apps.DefaultConfig',
     'articles',
     'events',
     'users',
