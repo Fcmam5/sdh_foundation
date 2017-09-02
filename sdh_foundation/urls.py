@@ -19,7 +19,7 @@ admin.autodiscover()
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
-from .views import home, about, profile
+from .views import home, about, privacy_policy
 from users.views import contact_us, registration_demand
 from articles.sitemaps import ArticleSitemap
 
@@ -49,6 +49,9 @@ urlpatterns = [
 
     # Contact us
     url(r'^contact/', view=contact_us, name="contact_us"),
+
+    # Privacy policy
+    url(r'^privacy/', view=privacy_policy, name="privacy_policy"),
 
     # Registration urls
     url(r'^register/', view=registration_demand, name="register"),
