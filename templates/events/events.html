@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+    <main class="padding-top">
+        <section class="container text-justify">
+              {% for event in events %}
+                    <div class="col-sm-offset-2 col-sm-8 profile {% if event.is_event_active %} active-event {% else %} past-event {% endif%}">
+                        <p class="text-center">{% if event.is_event_active %} Coming soon {% else %} Past event {% endif%}</p>
+                        <div class="row">
+                            <div class="col-sm-offset-1 col-sm-10">
+                                <a href="{{ event.get_absolute_url }}">
+                                    <img class="col-sm-12" src="{{ event.poster.url }}" height="200px" alt="">
+                                </a>
+                                <a href="{{ event.get_absolute_url }}">
+                                    <h2 class="">{{event.title}}</h2>
+                                </a>
+                                <p>{{event.content}}</p>
+                                <p>IN: {{event.place}} ON: {{ event.timing}} </p>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                <div class="text-center">
+                  <h2>{% trans 'Sorry!' %}</h2>
+                  <p>{% trans 'We couldn\'t find any results for your query' %}</p>
+                </div>
+              {% endfor %}
+        </section>
+    </main>
+{% endblock %}
