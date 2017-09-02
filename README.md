@@ -23,6 +23,7 @@ EMAIL_HOST_PASSWORD = 'GMAIL APPLICATION CODE'
 - [ ] Create super user
 - [ ] Create search index
 - [ ] Edit domain on `/admin` , change `example.com` to your domain
+- [ ] Create `groupes` on your `Django-admin`
 
 ### SEO Checklist
 - [ ] Create Google analytics and add me as an Admin

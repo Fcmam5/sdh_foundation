@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.core.mail import EmailMessage
 from .forms import ContactByMailForm, RegistrationDemandForm
+from .models import CustomUser
 
 # Create your views here.
 
@@ -65,3 +66,7 @@ def registration_demand(request):
         form = RegistrationDemandForm()
 
     return render(request, 'contact/registration.html', {'form': form,'sent': sent})
+
+def profile_view(request, id):
+    user = get_object_or_404(CustomUser, pk=id)
+    return render(request, 'profile.html', {'user': user})

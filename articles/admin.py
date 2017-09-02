@@ -26,13 +26,14 @@ class ProjectImageInline(admin.StackedInline):
 
 
 class BlogAdmin(admin.ModelAdmin):
-    exclude = ['author']
+    exclude = ['author', 'published']
     prepopulated_fields = {'slug': ('title',)}
-    list_display = ['title', 'updated', 'posted', 'author','published']
+    list_display = ['title', 'updated', 'author','language','published']
     list_display_link = ['title']
-    list_filter = ['categorie', 'posted', 'updated']
+    list_filter = ['categorie', 'posted', 'updated', 'language']
     inlines  = [ProjectImageInline,]
     actions = [publish_posts, unpublish_posts]
+    search_fields = ['title', 'body', 'description']
     class Meta:
         model = Article
         verbose_name = _("article")
@@ -42,6 +43,26 @@ class BlogAdmin(admin.ModelAdmin):
         if not change:
             obj.author = request.user
         obj.save()
+
+    def get_queryset(self, request):
+        """
+        Scientist can only see his articles.
+        Staffs and superuser can see articles of any author(scientist)
+        """
+        qs = super(BlogAdmin, self).get_queryset(request)
+        if request.user.is_superuser or request.user.account_type == 2:
+            return qs
+        return qs.filter(author=request.user)
+
+    def get_actions(self, request):
+        """
+        Show Publish/Unpublish actions only for staffs and superuser
+        """
+        actions = super(BlogAdmin, self).get_actions(request)
+        if request.user.account_type == 1 and not request.user.is_superuser:
+            del actions['publish_posts']
+            del actions['unpublish_posts']
+        return actions
 
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}

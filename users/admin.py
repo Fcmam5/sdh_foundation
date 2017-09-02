@@ -1,70 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import ugettext_lazy as _
+from .models import CustomUser
+from .forms import UserChangeForm, UserCreationForm
 
-from .models import CustomUser , StaffUser , ScientificUser
-from .forms import CustomUserChangeForm, CustomUserCreationForm , StaffUserCreationForm , StaffUserChangeForm
-
-# class CustomUserAdmin(UserAdmin):
-#             # The forms to add and change user instances
-
-#             # The fields to be used in displaying the User model.
-#             # These override the definitions on the base UserAdmin
-#             # that reference the removed 'username' field
-#     fieldsets = (
-#                 (None, {'fields': ('email', 'password')}),
-#                 (_('Personal info'), {'fields': ('phone_number',)}),
-#                 (_('Permissions'), {'fields': ('is_staff',)}),
-#                 # (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
-#             )
-#     add_fieldsets = (
-#                 (None, {
-#                     'classes': ('wide',),
-#                     'fields': ('email', 'password1', 'password2')}
-#                 ),
-#             )
-#     form = CustomUserChangeForm
-#     add_form = CustomUserCreationForm
-#     list_display = ('email', 'is_staff','is_superuser')
-#     search_fields = ('email', )
-#     ordering = ('email',)
-
-# admin.site.register(CustomUser, CustomUserAdmin)
-# admin.site.register(ScientificUser)
-class staffUserAdmin(UserAdmin):
-            # The forms to add and change user instances
-
-            # The fields to be used in displaying the User model.
-            # These override the definitions on the base UserAdmin
-            # that reference the removed 'username' field
-    
-    
+class UsersUserAdmin(UserAdmin):
     fieldsets = (
-                (None, {'fields': ('email','first_name','last_name')}),
-                (_('Personal info'), {'fields': ('phone_number',)}),
-                (_('Permissions'), {'fields': ('groups','password')}),
-                # (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
-            )
-    add_fieldsets = (
-                (None, {'classes': ('wide',),
-                        'fields': ('email', 'password1', 'password2' ,'first_name','last_name','phone_number')}
-                ),
-                (_('Permissions'), {'fields': ('groups',)}),
-                
-            )
-    form = StaffUserChangeForm
-    add_form = StaffUserCreationForm 
-    list_display = ('email', 'is_staff','is_superuser','is_member')
-    search_fields = ('email', )
-    ordering = ('email',)
-
-admin.site.register(StaffUser , staffUserAdmin)
-
-
-
-class ScientificUserAdmin(UserAdmin):
-    fieldsets = (
-                (None, {'fields': ('email','first_name','last_name')}),
+                (None, {'fields': ('email','first_name','last_name', 'password', 'account_type')}),
                 (_('Personal info'), {'fields': ('phone_number',)}),
                 (_('Permissions'), {'fields': ('groups',)}),
                 # (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
@@ -72,16 +14,18 @@ class ScientificUserAdmin(UserAdmin):
     add_fieldsets = (
                 (None, {
                     'classes': ('wide',),
-                    'fields': ('email', 'password1', 'password2' ,'first_name','last_name','phone_number','speciality','grad','image','cv')}
+                    'fields': ('email', 'password1', 'password2')}
                 ),
-                 (_('Permissions'), {'fields': ('groups',)}),
+                (_('Profile'), {'fields': ('first_name','last_name','phone_number','speciality','grad','image','cv')}),
+                 (_('Permissions'), {'fields': ('account_type','groups',)}),
             )
-    form = StaffUserChangeForm
-    add_form = StaffUserCreationForm 
-    list_display = ('email', 'is_staff','is_superuser' ,'is_member')
-    search_fields = ('email', )
+    form = UserChangeForm
+    add_form = UserCreationForm
+    list_display = ('get_full_name','email', 'is_staff','is_superuser')
+    list_display_links = ('email', 'get_full_name')
+    search_fields = ('email', 'get_full_name')
     ordering = ('email',)
 
 
 
-admin.site.register(ScientificUser , ScientificUserAdmin)
+admin.site.register(CustomUser , UsersUserAdmin)

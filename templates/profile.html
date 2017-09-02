@@ -9,7 +9,7 @@
         </div>
         <div class="col-sm-8 container">
         <br>
-        <h1 class="text-center h4">FORSTAS Abduljalil Mohamed Al amine</h1>
+        <h1 class="text-center h4">{{ user.get_full_name }}</h1>
         <br>
                 <table class="table">
                 <tbody>
@@ -17,7 +17,7 @@
                     <th scope="row">
                         <td>EMAIL:</td>
                     </th>
-                    <td>bahri.aimen48@gmail.com</td>
+                    <td>{{ user.email }}</td>
                     </tr>
                     <tr>
                     <th scope="row">
@@ -55,9 +55,9 @@
         </div>
     </div>
 </div>
-      
-      
-  
+
+
+
 <div class="container ">
     <div class="text-center margin profile-describ">
         <h3>Biographie</h3>
@@ -77,7 +77,7 @@
           <div class="portfolio-caption">
             <h4>Round Icons</h4>
           </div>
-      </div>  
+      </div>
 
       <div class="col-sm-4 portfolio-item">
           <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
@@ -90,7 +90,7 @@
           <div class="portfolio-caption">
             <h4>Round Icons</h4>
           </div>
-      </div>  
+      </div>
 
       <div class="col-sm-4 portfolio-item">
           <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
@@ -103,7 +103,7 @@
           <div class="portfolio-caption">
             <h4>Round Icons</h4>
           </div>
-      </div>  
+      </div>
 
       <div class="col-sm-4 portfolio-item">
           <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
@@ -116,7 +116,7 @@
           <div class="portfolio-caption">
             <h4>Round Icons</h4>
           </div>
-      </div>  
+      </div>
 
       <div class="col-sm-4 portfolio-item">
           <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
@@ -129,7 +129,7 @@
           <div class="portfolio-caption">
             <h4>Round Icons</h4>
           </div>
-      </div>  
+      </div>
 
       <div class="col-sm-4 portfolio-item">
           <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
@@ -142,16 +142,16 @@
           <div class="portfolio-caption">
             <h4>Round Icons</h4>
           </div>
-      </div>  
+      </div>
 
     </div>
  </div>
 
 </div>
-  
 
-  
-  
+
+
+
 
 
 {% endblock %}

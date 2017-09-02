@@ -30,7 +30,7 @@ class Article(models.Model):
                 help_text=_('A short description to display in search restuls'))
     body = RichTextUploadingField(_('Body'),config_name='article_body_editor')
     posted = models.DateTimeField(db_index=True, auto_now_add=True, auto_now=False)
-    updated = models.DateTimeField(db_index=True, auto_now_add=False, auto_now=True)
+    updated = models.DateTimeField(verbose_name=_('Last update'),db_index=True, auto_now_add=False, auto_now=True)
     categorie = models.ForeignKey('articles.Categorie', default=1)
     document = models.FileField(_('Document'),blank = True, null = True,
                 help_text=_('Document to join in article for download'))

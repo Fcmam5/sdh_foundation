@@ -41,7 +41,8 @@ urlpatterns = [
     url(r'^events/', include("events.urls")),
 
     # User profile
-    url(r'^profile/', view=profile, name='profile'),
+    url(r'^users/', include("users.urls")),
+
 
     # Admin stuff TODO: Change to lOGIN
     url(r'^admin/', admin.site.urls),

@@ -1,14 +1,10 @@
 from django.db import models
 from django.utils import timezone
-from django.utils.http import urlquote
+from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.core.mail import send_mail
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
-from django.conf import settings
 from django.contrib.auth.models import BaseUserManager
-
-# from posts.models import Article
-
 
 class CustomUserManager(BaseUserManager):
 
@@ -45,10 +41,20 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     Creating a CustomUser model which defines
     """
 
+    ACCOUNT_TYPES = {
+        (1, _('Scientist')),
+        (2, _('Staff'))
+    }
+
     email = models.EmailField(_('email address'), max_length=254, unique=True)
     first_name = models.CharField(max_length = 25)
     last_name = models.CharField(max_length = 25)
-
+    image = models.ImageField(blank = True)
+    phone_number = models.CharField(max_length = 25)
+    speciality = models.CharField(max_length = 25 , blank = True)
+    grad = models.CharField(max_length = 25 , blank = True)
+    cv = models.FileField(blank = True)
+    account_type = models.IntegerField(default=1, choices=ACCOUNT_TYPES)
 
 
     is_superuser = models.BooleanField(_('superuser status'), default=False,
@@ -73,7 +79,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = _('users')
 
     def get_absolute_url(self):
-        return "/users/%s/" % urlquote(self.email)
+        return reverse("profile", kwargs={"id" : self.id})
 
     def get_full_name(self):
         """
@@ -81,6 +87,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         """
         full_name = '%s %s' % (self.first_name, self.last_name)
         return full_name.strip()
+    get_full_name.short_description = _("Full name")
 
     def get_short_name(self):
         "Returns the short name for the user."
@@ -91,24 +98,3 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         Sends an email to this User.
         """
         send_mail(subject, message, from_email, [self.email])
-
-
-
-
-
-
-class StaffUser(CustomUser , PermissionsMixin):
-    phone_number = models.CharField(max_length = 25)
-    is_member = models.BooleanField(default = True)
-
-
-
-
-
-class ScientificUser(CustomUser , PermissionsMixin):
-    image = models.ImageField(blank = True)
-    phone_number = models.CharField(max_length = 25)
-    speciality = models.CharField(max_length = 25 , blank = True)
-    grad = models.CharField(max_length = 25 , blank = True)
-    cv = models.FileField(blank = True)
-    is_member = models.BooleanField(default = False)
