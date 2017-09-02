@@ -12,5 +12,5 @@ def about(request):
     return render(request, 'about.html')
 
 # Display the User profile
-def profile(request):
+def profile(request, id):
     return render(request, 'profile.html')

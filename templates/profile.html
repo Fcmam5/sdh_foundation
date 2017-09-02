@@ -5,7 +5,7 @@
     <div class="container col-sm-12  profile">
       <div class="row">
           <div class="col-sm-4">
-            <img src="https://unsplash.it/1100" class="img-responsive ">
+            <img src="{{ user.image.url }}" class="img-responsive ">
         </div>
         <div class="col-sm-8 container">
         <br>
@@ -23,25 +23,25 @@
                     <th scope="row">
                         <td>SPECIALITE:</td>
                     </th>
-                    <td>Informatique</td>
+                    <td>{{ user.speciality }}</td>
                     </tr>
                     <tr>
                     <th scope="row">
                         <td>GRADE:</td>
                     </th>
-                    <td>Liscencier</td>
+                    <td>{{ user.grad }}</td>
                     </tr>
                     <tr>
                     <th scope="row">
-                        <td>COMMUNOTE:</td>
+                        <td>PHONE:</td>
                     </th>
-                    <td>ORAN1 LABORATOIRE</td>
+                    <td>{{ user.phone_number }}</td>
                     </tr>
                     <tr>
                     <th scope="row">
-                        <td>NATIONALITE:</td>
+                        <td>TYPE:</td>
                     </th>
-                    <td>Algerienne</td>
+                    <td>{{ user.account_type }}</td>
                     </tr>
                     <tr>
                     <th scope="row">
@@ -63,6 +63,7 @@
         <h3>Biographie</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+         <a href="{{ user.cv }}" download="cv.pdf">Télécharger le fichier (.pdf)</a>
     </div>
     <div class="profile-describ" id="portfolio">
     <div class="row">
