@@ -5,6 +5,7 @@ from django.utils.encoding import smart_unicode
 from django.db import models
 from django.utils import timezone
 from location_field.models.plain import PlainLocationField
+from django.utils.translation import ugettext_lazy as _
 
 # Create your models here.
 def upload_posters_location(instance, filename):
@@ -17,8 +18,8 @@ class Event(models.Model):
     content = models.TextField()
     poster = models.ImageField(upload_to = upload_posters_location, verbose_name='Poster', default='default.jpg')
     place = models.CharField(max_length = 120, default = 'جامعة وهران1 أحمد بن بلة')
-    timing = models.DateField(auto_now = False, auto_now_add = False)
-    updated = models.DateTimeField(auto_now = True, auto_now_add = False)
+    timing = models.DateField(_("Due date"),auto_now = False, auto_now_add = False)
+    updated = models.DateTimeField(_("Last update"), auto_now = True, auto_now_add = False)
     created = models.DateTimeField(auto_now = False, auto_now_add = True)
     location = PlainLocationField(based_fields=['city'], zoom=0, blank=True, null=True)
 
@@ -39,4 +40,5 @@ class Event(models.Model):
         return self.is_active and self.timing >= timezone.now().date()
 
     class Meta:
-        verbose_name_plural = 'events'
+        verbose_name_plural = _('events')
+        verbose_name = _('event')

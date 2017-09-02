@@ -16,21 +16,23 @@
     </style>
     {% endif%}
   {% endblock %}
-<main class="padding-top">
+<main >
     <section class="container">
-                    <div class="col-sm-offset-1 col-sm-9 profile {% if event.is_event_active %} active-event {% else %} past-event {% endif%}">
-                        <div class="row">
-                            <div class="col-sm-offset-1 col-sm-10">
-                                <img class="col-sm-12" src="{{ event.poster.url }}" height="200px" alt="">
-                                <h2 class="">{{event.title}}</h2>
-                                <p>{{event.content}}</p>
-                                <p>IN: {{event.place}} ON: {{ event.timing}} </p>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                          <div id="mapid"></div>
-                        </div>
-                    </div>
+      <div class="col-sm-offset-1 col-sm-9 panel">
+        <div class="panel-body">
+          <img style="height:60vh;width:100%;margin-top:0px;" src="{{ event.poster.url }}" alt="">
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-10">
+                    <h1 class="text-center">{{event.title}}</h1>
+                    <p>{{event.content}}</p>
+                    <p>IN: {{event.place}} ON: {{ event.timing}} </p>
+                </div>
+            </div>
+            <div class="col-md-12">
+              <div id="mapid"></div>
+            </div>
+        </div>
+      </div>
     </section>
 </main>
 {% endblock %}
