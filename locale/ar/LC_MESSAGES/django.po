@@ -1,0 +1,603 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-03 22:08+0000\n"
+"PO-Revision-Date: 2017-09-04 00:22+0100\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.7.1\n"
+
+#: articles/admin.py:11
+msgid "Publish selected posts"
+msgstr "نشر المقالات المحددة"
+
+#: articles/admin.py:15
+msgid "Unpublish selected posts"
+msgstr "إلغاء نشر المقالات المحددة"
+
+#: articles/admin.py:39
+msgid "article"
+msgstr "المقالة"
+
+#: articles/admin.py:40
+msgid "articles"
+msgstr "المقالات"
+
+#: articles/forms.py:7
+msgid "Item Description."
+msgstr "وصف العنصر"
+
+#: articles/models.py:27 articles/models.py:53
+msgid "Title"
+msgstr "العنوان"
+
+#: articles/models.py:28 articles/models.py:54
+msgid "Slug"
+msgstr "الرابط"
+
+#: articles/models.py:29
+msgid "Description"
+msgstr "الوصف"
+
+#: articles/models.py:30
+msgid "A short description to display in search restuls"
+msgstr "وصف موجز لتظهر في نتائج البحث"
+
+#: articles/models.py:31
+msgid "Body"
+msgstr "المحتوى"
+
+#: articles/models.py:32
+msgid "Posted"
+msgstr "نشر في"
+
+#: articles/models.py:33 events/models.py:22
+msgid "Last update"
+msgstr "آخر تعديل"
+
+#: articles/models.py:35
+msgid "Document"
+msgstr "المجلد"
+
+#: articles/models.py:36
+msgid "Document to join in article for download"
+msgstr "المجلد للإرفاق بهذه المقالة و إتاحته للتحميل"
+
+#: articles/models.py:37
+msgid "Language"
+msgstr "اللغة"
+
+#: articles/models.py:38
+msgid "Published"
+msgstr "نشر في"
+
+#: articles/models.py:49 templates/components/navbar.html:53
+msgid "Articles"
+msgstr "المقالات"
+
+#: articles/models.py:50
+msgid "Article"
+msgstr "المقالة"
+
+#: articles/models.py:60
+msgid "categories"
+msgstr "الأصناف"
+
+#: articles/models.py:61
+msgid "categorie"
+msgstr "الصنف"
+
+#: articles/models.py:65
+msgid "Image description"
+msgstr "وصف الصورة"
+
+#: articles/models.py:66
+msgid ""
+"Descripe your image, this field is important to search engines and for web "
+"accessibility"
+msgstr ""
+"صف الصورة، هذا الحقل مهم لمحركات البحث و إمكانية الوصول لذوي الإحتياجات "
+"الخاصة"
+
+#: articles/models.py:70
+msgid "images"
+msgstr "الصور"
+
+#: articles/models.py:71
+msgid "image"
+msgstr "الصورة"
+
+#: events/models.py:21
+msgid "Due date"
+msgstr "تاريخ الموعد"
+
+#: events/models.py:43
+msgid "events"
+msgstr "الفعاليات"
+
+#: events/models.py:44
+msgid "event"
+msgstr "الفعالية"
+
+#: sdh_foundation/settings.py:125
+msgid "English"
+msgstr "الإنجليزية"
+
+#: sdh_foundation/settings.py:126
+msgid "French"
+msgstr "الفرنسية"
+
+#: sdh_foundation/settings.py:127
+msgid "Arabic"
+msgstr "العربية"
+
+#: templates/about.html:5
+msgid "About sidi el Houari"
+msgstr "حول سيدي الهواري"
+
+#: templates/admin/base_site.html:4 templates/admin/base_site.html:10
+msgid "SEF"
+msgstr "م.س.ه"
+
+#: templates/articles/article_detail.html:15
+msgid "Last update on: "
+msgstr "آخر تعديل في:"
+
+#: templates/articles/article_detail.html:28
+msgid "This article has no images"
+msgstr "هذه المقالة ﻻ تحتوى على أي صور"
+
+#: templates/articles/article_detail.html:38
+#, python-format
+msgid ""
+"\n"
+"              This article provides %(nb)s image, and a document for "
+"download\n"
+"              "
+msgid_plural ""
+"\n"
+"              This article provides %(nb)s images, and a document for "
+"download\n"
+"              "
+msgstr[0] ""
+"\n"
+"هذه المقالة  ﻻ تحتوي على أي صور، و تتيح ملف للتحميل"
+msgstr[1] ""
+"\n"
+"هذه المقالة تحتوي على على صورة، و على ملف للتحميل"
+msgstr[2] ""
+"\n"
+"هذه المقالة تحتوي على على صورتين، و على ملف للتحميل"
+msgstr[3] ""
+"\n"
+"هذه المقالة تحتوي على على %(nb)s صور، و على ملف للتحميل"
+msgstr[4] ""
+"\n"
+"هذه المقالة تحتوي على على %(nb)s صور، و على ملف للتحميل"
+msgstr[5] ""
+"\n"
+"هذه المقالة تحتوي على على %(nb)s صور، و على ملف للتحميل"
+
+#: templates/articles/article_detail.html:46
+#: templates/articles/article_detail.html:55
+#: templates/articles/article_detail.html:69
+#: templates/articles/article_detail.html:78
+msgid "Share this page"
+msgstr "شارك هذه الصفحة"
+
+#: templates/articles/article_detail.html:48
+#: templates/articles/article_detail.html:52
+#: templates/articles/article_detail.html:71
+#: templates/articles/article_detail.html:75
+msgid "Download file"
+msgstr "حمل الملف"
+
+#: templates/articles/article_detail.html:62
+#, python-format
+msgid ""
+"\n"
+"              This article provides %(nb)s image.\n"
+"              "
+msgid_plural ""
+"\n"
+"              This article provides %(nb)s images.\n"
+"              "
+msgstr[0] ""
+"\n"
+"هذه المقالة ﻻ تحتوى على صور"
+msgstr[1] ""
+"\n"
+"هذه المقالة تحتوى على صورة"
+msgstr[2] ""
+"\n"
+"هذه المقالة تحتوى على صورتين"
+msgstr[3] ""
+"\n"
+"هذه المقالة تحتوى على %(nb)s صور"
+msgstr[4] ""
+"\n"
+"هذه المقالة تحتوى على %(nb)s صور"
+msgstr[5] ""
+"\n"
+"هذه المقالة تحتوى على %(nb)s صور"
+
+#: templates/articles/article_detail.html:96
+#, python-format
+msgid ""
+"\n"
+"            %(author)s, \"%(title)s\" in <em>Sidi El Houari foundation's "
+"website</em> %(posted_date)s,\n"
+"            "
+msgstr ""
+
+#: templates/articles/article_detail.html:104
+msgid "Share on social media"
+msgstr "مشاركة في الوسائط الإجتماعية"
+
+#: templates/articles/articles_base.html:21
+msgid "Filter by category:"
+msgstr "ترشيح حسب الصنف"
+
+#: templates/articles/articles_base.html:30
+msgid "Filter by document source:"
+msgstr "ترشيح حسب مصدر المجلد"
+
+#: templates/articles/articles_base.html:33
+msgid "Items in the archive (998,635)"
+msgstr ""
+
+#: templates/articles/articles_base.html:36
+msgid "Articles from our experts (125)"
+msgstr ""
+
+#: templates/articles/articles_list.html:53
+#: templates/articles/articles_search.html:61 templates/events/events.html:24
+msgid "Sorry!"
+msgstr "عذرا!"
+
+#: templates/articles/articles_list.html:54
+#: templates/articles/articles_search.html:62 templates/events/events.html:25
+msgid "We couldn\\"
+msgstr "لم نستطع"
+
+#: templates/articles/articles_list.html:67
+#: templates/articles/articles_search.html:74
+msgid "(current)"
+msgstr "(الحالي)"
+
+#: templates/articles/articles_search.html:7
+#: templates/articles/articles_search.html:10
+msgid "Search"
+msgstr "بحث"
+
+#: templates/articles/articles_search.html:17
+#, python-format
+msgid ""
+"\n"
+"Results for \"%(search_term)s\"\n"
+msgstr ""
+"\n"
+"نتائج البحث لـ \"%(search_term)s\n"
+
+#: templates/articles/articles_search.html:51
+msgid "Posted by"
+msgstr "نشر من طرف"
+
+#: templates/articles/articles_search.html:51
+msgctxt "posted by"
+msgid "on"
+msgstr "في"
+
+#: templates/components/footer.html:6
+msgid "About"
+msgstr "عن سيدي الهواري"
+
+#: templates/components/footer.html:10
+msgid "know more"
+msgstr "إعرف أكثر"
+
+#: templates/components/footer.html:11 templates/contact/contact-us.html:25
+#: templates/contact/registration.html:18
+msgid "About Sidi El Houari"
+msgstr "عن سيدي الهواري"
+
+#: templates/components/footer.html:13
+msgid "The Foundation"
+msgstr "المؤسسة"
+
+#: templates/components/footer.html:15
+msgid "Privacy policy"
+msgstr "سياسة الخصوصية"
+
+#: templates/components/footer.html:17 templates/contact/contact-us.html:5
+#: templates/contact/contact-us.html:7 templates/contact/contact-us.html:32
+#: templates/events/event_detail.html:6
+msgid "Contact us"
+msgstr "إتصل بنا"
+
+#: templates/components/footer.html:23
+msgid "Contact"
+msgstr "إتصال"
+
+#: templates/components/footer.html:25
+msgid "Email:"
+msgstr "البريد الإلكتروني"
+
+#: templates/components/footer.html:26
+msgid "Adress:"
+msgstr "العنوان"
+
+#: templates/components/footer.html:27
+msgid "Chaine Nationale:"
+msgstr "القناة الوطنية:"
+
+#: templates/components/footer.html:28
+msgid "Radio Oran:"
+msgstr "راديو وهران:"
+
+#: templates/components/footer.html:28
+msgid "El Bahia"
+msgstr "الباهية"
+
+#: templates/components/footer.html:32
+msgid "Sidi El Houari foundation"
+msgstr "مؤسسة سيدي الهواري"
+
+#: templates/components/navbar.html:31
+msgid "Logout"
+msgstr "تسجيل خروج"
+
+#: templates/components/navbar.html:39
+msgid "Login"
+msgstr "دخول"
+
+#: templates/components/navbar.html:46 templates/contact/registration.html:25
+msgid "Register"
+msgstr "تسجيل"
+
+#: templates/components/navbar.html:52
+msgid "Sidi El Houari"
+msgstr "سيدي الهواري"
+
+#: templates/components/navbar.html:54
+msgid "Events"
+msgstr "الفعاليات"
+
+#: templates/contact/contact-us.html:8 templates/events/event_detail.html:7
+msgid "Contact Sidi El Houari foundation"
+msgstr "الإتصال بمؤسسة سيدي الهواري"
+
+#: templates/contact/contact-us.html:22
+msgid "Thank you for contacting us."
+msgstr "شكرا لكم على الإتصال بنا"
+
+#: templates/contact/contact-us.html:23
+msgid ""
+"We appreciate that you've taken the time to write us. We'll get back to you "
+"very soon. Until then, feel free to check out the following resources:"
+msgstr ""
+"نقدر لكم أنكم أخذتم من وقتكم للكتابة لنا. سنجيبكم في أقرب وقت، تفضللوا "
+"بزيارة الروابط التالية:"
+
+#: templates/contact/contact-us.html:26
+msgid "Our latest articles"
+msgstr "آخر مقالاتنا"
+
+#: templates/contact/contact-us.html:27 templates/contact/registration.html:20
+msgid "Sidi El Houari foundation's events"
+msgstr "فعاليات مؤسسة سيدي الهواري"
+
+#: templates/contact/contact-us.html:58
+msgid "Submit"
+msgstr "تطبيق"
+
+#: templates/contact/contact-us.html:63
+msgid "Find us"
+msgstr "إبحث عنا"
+
+#: templates/contact/registration.html:4
+msgid "Registration"
+msgstr "تسجيل"
+
+#: templates/contact/registration.html:6
+msgid "Scientists registration demand"
+msgstr "طلب تسجيل العلماء"
+
+#: templates/contact/registration.html:7
+msgid ""
+"Send demand as a scientist for a publisher account, only historians and "
+"specialists applications are accpeted after a review by our staffs."
+msgstr ""
+"أرسل طلب بصفتك عالم لحساب ناشر، يتم قبول تسجيلات المؤرخين و المختصين بعد "
+"مراجعة من عمالنا."
+
+#: templates/contact/registration.html:15
+msgid "Demand has been submitted successfully"
+msgstr "تم تسجيل الطلب بنجاح."
+
+#: templates/contact/registration.html:16
+msgid ""
+"Your application has been submitted, our staffs will review your demand "
+"carefully and we will contact you soon. Until then, feel free to check out "
+"the following resources:"
+msgstr ""
+"تم تسجيل طلبك بنجاح، سيقوم عمالنا بالتحقق منها و سيتم الإتصال بك عن قريب. "
+"إلى ذلك الحين، تفضل بزيارة الروابط التالية:"
+
+#: templates/contact/registration.html:19
+msgid "Our latest articles "
+msgstr "آخر مقالاتنا"
+
+#: templates/contact/registration.html:26
+msgid ""
+"Registration is only for scientists, historians and specialists. Registred "
+"users can publish in our website."
+msgstr ""
+"التسجيل للعلماء و المؤرخون و المختصون. فقط المسجيلين يمكنهم النشر في موقعنا."
+
+#: templates/contact/registration.html:53
+msgid "Submit application"
+msgstr "إرسال التطبيق"
+
+#: templates/events/events.html:8
+msgid "Coming soon"
+msgstr "سأتي قريبا"
+
+#: templates/events/events.html:8
+msgid "Past event"
+msgstr "فعالية سابقة"
+
+#: templates/privacy-policy.html:3
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+#: templates/privacy-policy.html:5
+msgid "Privacy Policy of Sidi El Houari foundation website"
+msgstr "سياسة الخصوصية لموقع مؤسسة سيدي الهواري"
+
+#: templates/privacy-policy.html:6
+msgid ""
+"Website Privacy Policy, Sidi El Houari foundation. This privacy policy helps "
+"users of this website understand their privacy rights and how we use your "
+"information."
+msgstr ""
+
+#: users/admin.py:10
+msgid "Personal info"
+msgstr "المعلومات الخاصة"
+
+#: users/admin.py:11 users/admin.py:20
+msgid "Permissions"
+msgstr "الصلاحيات"
+
+#: users/admin.py:19
+msgid "Profile"
+msgstr "الحساب"
+
+#: users/forms.py:21
+msgid "Name"
+msgstr "الإسم"
+
+#: users/forms.py:22 users/forms.py:29
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: users/forms.py:23
+msgid "Subject"
+msgstr "عنوان الرسالة"
+
+#: users/forms.py:24 users/forms.py:33
+msgid "Message"
+msgstr "الرسالة"
+
+#: users/forms.py:27 users/models.py:51
+msgid "First name"
+msgstr "اللقب"
+
+#: users/forms.py:28 users/models.py:52
+msgid "Last name"
+msgstr "الإسم"
+
+#: users/forms.py:30
+msgid "Research Interests (speciality)"
+msgstr "إهتمامات البحث (الإختصاص)"
+
+#: users/forms.py:30
+msgid "Example: <b>Islamic architecture</b>"
+msgstr "مثلا: <b>الهندسة الإسلامية</b>"
+
+#: users/forms.py:31 users/models.py:56
+msgid "Academic rank"
+msgstr "الرتبة الأكادمية"
+
+#: users/forms.py:31
+msgid "Example: <b>Maitre Assistant</b>"
+msgstr "مثلا: <b>أستاذ محاضر</b>"
+
+#: users/forms.py:32
+msgid "CV File"
+msgstr "ملف السيرة الذاتية"
+
+#: users/forms.py:32
+msgid "Please upload a valid CV file (pdf, doc, docx)"
+msgstr "رجاءا حمل ملفا مناسبا  (pdf, doc, docx)"
+
+#: users/forms.py:33
+msgid "Tell us more about you, and why you want to create this account"
+msgstr "أخبرنا المزيد عن نفسك و لمَ تريد إنشاء هذا الحساب"
+
+#: users/models.py:46
+msgid "Scientist"
+msgstr "عالم"
+
+#: users/models.py:47
+msgid "Staff"
+msgstr "عامل"
+
+#: users/models.py:50
+msgid "Email address"
+msgstr "البريد الإلكتروني"
+
+#: users/models.py:53
+msgid "Photo"
+msgstr "صورة"
+
+#: users/models.py:54
+msgid "Phone number"
+msgstr "رقم الهاتف"
+
+#: users/models.py:55
+msgid "Speciality"
+msgstr "إهتمامات البحث (الإختصاص)"
+
+#: users/models.py:57
+msgid "CV"
+msgstr "السيرة الذاتية"
+
+#: users/models.py:58
+msgid "Account typ"
+msgstr "نوع الحساب"
+
+#: users/models.py:61
+msgid "superuser status"
+msgstr "حالة الإدارة"
+
+#: users/models.py:62 users/models.py:65
+msgid "Designates whether the user can log into this admin site."
+msgstr ""
+
+#: users/models.py:64 users/models.py:67
+msgid "staff status"
+msgstr ""
+
+#: users/models.py:68
+msgid "Designates whether the user has the permission to publish articles"
+msgstr ""
+
+#: users/models.py:71
+msgid "date joined"
+msgstr "تاريخ الإنظمام"
+
+#: users/models.py:79
+msgid "user"
+msgstr "المستخدم"
+
+#: users/models.py:80
+msgid "users"
+msgstr "المستخدمون"
+
+#: users/models.py:91
+msgid "Full name"
+msgstr "الإسم الكامل"
