@@ -21,7 +21,6 @@ h2 {
     padding-bottom:1%;
     font-size:140%;
     font-weight:500;
-    border-bottom: 1px solid #eee;
 }
 h3 {
     color:#27AE61;
@@ -34,7 +33,7 @@ img {
     margin-top:3%;
     margin-bottom:3%;
 }
-
+    
 /*start FOOTER style */
 footer {
     background-color:#27332C;
@@ -95,15 +94,110 @@ footer .border-left{
     border-left: 0.5px solid rgba(255,255,255, 0.1);
 }
 /*end FOOTER style */
+/*start NAVBAR style*/
+.navbar-default {
+    position:fixed;
+    border: none;
+    border-radius:0px;
+    background-color:#fff;
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+    z-index:999;
+}
+.navbar-brand {
+    font-size:10px;
+}
+nav img{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.nav>li>a {
+    padding:17px 10px;
+    font-size:10px;
+    font-weight:700;
+    text-transform: capitalize;
+}
+.navbar-default .navbar-nav>li>a {
+
+    color: #27AE60;
+    font-weight:600;
+}
+.navbar-default .navbar-nav>.active {
+    padding:3px 10px;
+}
+.navbar-default .navbar-nav>.active>a {
+    color:white;
+    background-color:#27AE60;
+    padding:12px 15px;
+    border-radius:5%;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: white;
+    background-color:#27AE60;
+    transition: 0.6s;
+}
+.navbar-default .navbar-nav>.active>a:hover {
+    background-color:#f4f4f4;
+    color:black;
+    transition: 0.3s;
+}
+.navbar-brand {
+    padding:5px 15px;
+}
+
+.flag {
+    width:300px;
+    height:200px;
+    margin:50px;
+}
+.flag-element {
+    -webkit-animation:oscill 1s ease-in-out infinite alternate;
+    -moz-animation:oscill 1s ease-in-out infinite alternate;
+    -ms-animation:oscill 1s ease-in-out infinite alternate;
+    animation:oscill 1s ease-in-out infinite alternate;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Algeria.svg/2000px-Flag_of_Algeria.svg.png');
+    background-size: 20px 100%;
+    position:relative;
+    height:100%;
+    width:1px;
+    display:inline-block;
+    box-shadow:0 1px grey, 0 -1px gray;
+}
+@-webkit-keyframes oscill {
+    0% {
+        top: 5%;
+    }
+    100% {
+        top: -5%;
+    }
+}
+@-moz-keyframes oscill {
+    0% {
+        top: 5%;
+    }
+    100% {
+        top: -5%;
+    }
+}
+@-ms-keyframes oscill {
+    0% {
+        top: 5%;
+    }
+    100% {
+        top: -5%;
+    }
+}
+@keyframes oscill {
+    0% {
+        top: 5%;
+    }
+    100% {
+        top: -5%;
+    }
+}
+/*end NAVBAR style*/
 
 /*container style*/
-main {
-    padding-top:7vh;
-}
-.home-abt-img {
-    padding:2px;
-    box-shadow: 0px 1px 5px rgba(0,0,0,0.4);
-}
 .article-title {
     font-weight:300;
 }
@@ -157,7 +251,11 @@ main {
     color:#27AE61;
     margin-bottom:5%;
 }
-
+.event-sign {
+    color:#CF000F;
+    font-size:120%;
+    
+}
 /*end of HOME ABOUT style*/
 /*start ASSOCIATION about */
 #association-home-about {
@@ -202,7 +300,14 @@ main {
 /*end PARTNERS about*/
 
 /*end CV HEADER style*/
-
+/*start ERROR style*/
+.error-number {
+    font-size:800%;
+}
+.error-text {
+    font-weight:700;
+}
+/*end ERROR style*/
 @media(max-width:767px){
     p {
         font-size:80%;
@@ -211,7 +316,7 @@ main {
         top:25vh;
     }
     #home-describ h1 {
-        font-size:300%;
+        font-size:200%;
     }
     #sidi-houari-home-about h1 {
         font-size:200%;
@@ -241,22 +346,22 @@ main {
 }
 @media(min-width:768px){
     p {
-        font-size:85%;
+        font-size:70%;
     }
 
     #home-describ h1 {
-        font-size:350%;
+        font-size:300%;
     }
     #sidi-houari-home-about h1 {
-        font-size:220%;
+        font-size:180%;
     }
 
     #sidi-houari-home-about img {
 
-        margin-bottom:2%;
+        margin-bottom:1%;
     }
     #association-home-about {
-        font-size:85%;
+        font-size:80%;
     }
 }
 @media(min-width:992px){
@@ -285,9 +390,7 @@ main {
     }
 }
 @media(min-width:1200px){
-    main {
-    padding-top:2vh;
-    }
+    
     p {
         font-size:100%;
     }

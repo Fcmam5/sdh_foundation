@@ -1,0 +1,66 @@
+/*start home style*/
+#home {
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),url("http://www.babzman.com/wp-content/uploads/2016/04/Oran1.jpg");
+    background-size:cover;
+    background-attachment:fixed;
+    height:94vh;
+    text-align: center;
+}
+#home-describ {
+    color:white;
+    position:absolute;
+    top:30vh;
+    left:0;
+    right:0;
+    display:block;
+    background-color:rgba(0, 0, 0, 0.2);
+    padding:40px 0px;
+}
+#home-describ h1 {
+    font-weight:100;
+}
+
+#home-describ p {
+    opacity:0.8;
+}
+#home-describ i {
+    color:#27AE61;
+    position:absolute;
+    top:50vh;
+    left:47vw;
+    font-size:200%;
+    text-align: center;
+}
+/*end HOME style*/
+/*start HOME ABOUT style*/
+#sidi-houari-home-about {
+    background-color:white;
+    background-image:url("/static/img/hi2.png");
+    background-position: 10% 50%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}
+#sidi-houari-home-about h1 {
+    font-size:300%;
+    font-weight:300;
+    color:#27AE61;
+    margin-bottom:5%;
+}
+/*end of HOME ABOUT style*/
+/*start ASSOCIATION about */
+#association-home-about {
+    background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),url("/static/img/background2.jpg");
+    background-size:cover;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    color: white;
+    font-size:100%;
+    line-height:2em
+}
+#association-home-about h1 {
+    font-weight:300;
+}
+#contact {
+    background-color:#fff;
+}

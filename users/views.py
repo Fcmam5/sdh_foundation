@@ -76,3 +76,7 @@ def profile_view(request, id):
         'events': events
     }
     return render(request, 'profile.html', context)
+
+#testing error 404 
+def error(request):
+    return render(request,'error404.html')
