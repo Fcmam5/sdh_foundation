@@ -14,12 +14,9 @@
 
 .element-title a{
   color: #333;
-
   font-weight: 500;
   line-height: 1.1;
 }
-
-
 .element-title a:hover,
 .element-title a:active,
 .element-title a:visited {
@@ -226,7 +223,7 @@
 
 @media(max-width:767px){
     .padding-top {
-        padding-top:25vh;
+        padding-top:10vh;
     }
     .element-title a{
         font-size: 10px;
@@ -234,7 +231,7 @@
 }
 @media(min-width:768px){
     .padding-top {
-        padding-top:20vh;
+        padding-top:11vh;
     }
     .element-title a{
         font-size: 10px;
@@ -249,6 +246,9 @@
     }
 }
 @media(min-width:1200px){
+    .padding-top {
+        padding-top:10vh;
+    }
     .element-title a{
         font-size: 16px;
     }

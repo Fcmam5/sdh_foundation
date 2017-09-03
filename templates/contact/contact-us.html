@@ -16,8 +16,18 @@
     </style>
 {% endblock %}
 {% block content %}
+<section class="top-title text-center">
+    <div class="top-title-text">
+      <h1>
+        Suscribe in our Community and stay in touch
+      </h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur <strong>adipisicing elit</strong>. Molestiae ipsa, assumenda amet illum aliquid animi dignissimos eius harum repudiandae qui voluptatibus illo fuga accusantium,repudiandae rem.
+      </p>
+    </div>
+</section>
   <main class="padding-top container">
-    <div class="container">
+    <div class="container profile">
       {% if sent %}
         <h1>{% trans 'Thank you for contacting us.' %}</h1>
         <p>{% trans "We appreciate that you've taken the time to write us. We'll get back to you very soon. Until then, feel free to check out the following resources:" %}</p>
@@ -29,7 +39,7 @@
       {% else %}
         <div class="row">
           <div class="col-md-8">
-            <h2 class="h1">{% trans 'Contact us' %}</h2>
+            <h1>{% trans 'Contact us' %}</h1>
             <form action="." method="post">
             {% csrf_token %}
             {% for field in form %}
@@ -60,7 +70,7 @@
             </form>
           </div>
           <div class="col-md-4">
-           <h2 class="h1">{% trans 'Find us' %}</h2>
+           <h2>{% trans 'Find our location' %}</h2>
            <div id="mapid"></div>
           </div>
         </div>

@@ -1,0 +1,9 @@
+{% extends "base.html"%}
+
+{% block content %}
+<section class="padding-top text-center">
+        <h1 class="error-number">404</h1>
+        <p class="error-text">Sorry,we can't find this page !</p>
+        <p>go back to <a href="{% url "home"%}">Home </a>, <a href="{% url "about"%}">About </a>or <a href="{% url "articles"%}">Articles</a></p>
+</section>
+{% endblock %}

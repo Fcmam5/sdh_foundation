@@ -20,12 +20,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from .views import home, about, privacy_policy
-from users.views import contact_us, registration_demand
+from users.views import contact_us, registration_demand , error
 from articles.sitemaps import ArticleSitemap
 
 sitemaps = {
     'articles' : ArticleSitemap()
 }
+
+
 
 urlpatterns = [
     # Sidi Al-houari Home Page
@@ -62,6 +64,9 @@ urlpatterns = [
 
     #CKEditor
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    
+    #testing error 
+    url(r'^error/', view=error, name="error"),
 ]
 
 admin.site.site_header = 'SEFoundation'
