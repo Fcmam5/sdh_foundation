@@ -2,30 +2,41 @@
 <footer>
             <div class="container">
                 <div class="row content">
-                    <div class="col-sm-3 colomn text-justify">
+                    <div class="col-sm-3 colomn">
                         <h1>{% trans 'About'%}</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet tenetur quos quisquam velit repellendus animi iste amet Eveniet tenetur quos quisquam velit repellendus animi iste amet Eveniet tenetur quos quisquam velit</p>
                     </div>
                     <div class="col-sm-3 colomn border-left">
                         <h1>{% trans 'know more' %}</h1>
-                            <li><a href="/about">{% trans 'About Sidi El Houari' %}</a></li>
-                            <br>
-                            <li>{% trans 'The Foundation' %}</li>
-                            <br>
-                            <li><a href="/privacy">{% trans 'Privacy policy' %}</a></li>
-                            <br>
-                            <li><a href="/contact">{% trans 'Contact us' %}</a></li>
-                            <br>
-                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                            <p><a href="/about">{% trans 'About Sidi El Houari' %}</a></p>
+                            <p>{% trans 'The Foundation' %}</p>
+                            <p><a href="/privacy">{% trans 'Privacy policy' %}</a></p>
+                            <p><a href="/contact">{% trans 'Contact us' %}</a></p>
+                            <form action="{% url 'set_language' %}" method="post">{% csrf_token %}
+                              <input name="next" type="hidden" value="{{ redirect_to }}" />
+                              <select name="language"
+                                      onchange="this.form.submit()"
+                                      title="{% trans 'Change language'%}"
+                                      id="change-lang">
+                                  {% get_current_language as LANGUAGE_CODE %}
+                                  {% get_available_languages as LANGUAGES %}
+                                  {% get_language_info_list for LANGUAGES as languages %}
+                                  <option disabled>{% trans 'Change website language' %}</option>
+                                  {% for language in languages %}
+                                      <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected{% endif %}>
+                                          {{ language.name_local }}
+                                      </option>
+                                  {% endfor %}
+                              </select>
+                          </form>
                     </div>
-                    <div class="col-sm-3 colomn border-left text-justify">
+                    <div class="col-sm-3 colomn border-left footer-contact">
                         <h1>{% trans 'Contact' %}</h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                        <li><strong>{% trans 'Email:' %} </strong>abc@gmail.com</li>
-                        <li><strong>{% trans 'Adress:' %} </strong>53 &rlm;,cité les castors&rlm;, Oran</li>
-                        <li><strong>{% trans 'Chaine Nationale:' %} </strong><a href="http://entv.dz/" target="_blank">ENTV</a></li>
-                        <li><strong>{% trans 'Radio Oran:' %} </strong><a href="http://www.radioalgerie.dz/player/ar/live/31-Oran" target="_blank">{% trans 'El Bahia' %} (92.7 FM)</li>
+                        <p><strong>{% trans 'Email:' %} </strong>abc@gmail.com</p>
+                        <p><strong>{% trans 'Adress:' %} </strong>53 &rlm;,cité les castors&rlm;, Oran</p>
+                        <p><strong>{% trans 'Chaine Nationale:' %} </strong><a href="http://entv.dz/" target="_blank">ENTV</a></p>
+                        <p><strong>{% trans 'Radio Oran:' %} </strong><a href="http://www.radioalgerie.dz/player/ar/live/31-Oran" target="_blank">{% trans 'El Bahia' %} (92.7 FM)</a></p>
                     </div>
 
                     <div class="col-sm-3 colomn border-left">

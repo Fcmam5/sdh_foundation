@@ -1,1 +1,20 @@
-/*TODO */
+p, h1, h2, h3, h4, a, li, label,
+.h5{
+  direction: rtl;
+  font-family: 'DroidArabicKufiRegular';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.9;
+}
+
+label{
+  display: block;
+}
+
+footer{
+  text-align: right!important;
+}
+
+footer .col-sm-3{
+  float: right!important;
+}

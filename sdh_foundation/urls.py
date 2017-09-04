@@ -19,6 +19,7 @@ admin.autodiscover()
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
+from django.views.i18n import set_language
 from .views import home, about, privacy_policy
 from users.views import contact_us, registration_demand , error
 from articles.sitemaps import ArticleSitemap
@@ -64,8 +65,11 @@ urlpatterns = [
 
     #CKEditor
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    
-    #testing error 
+
+    #Change language
+    url(r'^set_language/', set_language, name="set_language"),
+
+    #testing error
     url(r'^error/', view=error, name="error"),
 ]
 
