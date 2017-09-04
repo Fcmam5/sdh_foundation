@@ -31,6 +31,7 @@ EMAIL_HOST_PASSWORD = 'GMAIL APPLICATION CODE'
 ### To discuss
 - [ ] Create privacy policy and Terms of service pages
 - [ ] Create a good 404 Page
+- [ ] Put CSS inside CustomCSS block and CSS libraries inside their box, check `base.html` and use page-specific CSS afer including the main/shared css
 
 ## Extra Services (Out of service)
 أمور خارج عقدنا هذا، نقترح عليكم خدمات إضافية منها
