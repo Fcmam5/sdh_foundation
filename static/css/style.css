@@ -365,7 +365,19 @@ nav img{
     .main-about-content{
         text-align: center;
     }
-
+    .top-title{
+        height: 70vh;
+        padding: 9%;
+    }
+    .top-title-text p{
+        font-size: 60%;
+    }
+    .top-title-text h1 {
+        font-size:180%;
+    }
+    .top-title-text{
+        padding: 8%;
+    }
 }
 @media(min-width:768px){
     p {
@@ -385,6 +397,20 @@ nav img{
     }
     #association-home-about {
         font-size:80%;
+    }
+    .top-title{
+        height: 70vh;
+        padding: 7%;
+    }
+    .top-title-text p{
+        font-size: 70%;
+    }
+    .top-title-text h1 {
+        font-size:200%;
+    }
+    .top-title-text{
+        padding: 7%;
+    
     }
 }
 @media(min-width:992px){
@@ -410,6 +436,19 @@ nav img{
     }
     #association-home-about {
         font-size:100%;
+    }
+    .top-title{
+        height: 55vh;
+        padding: 7%;
+    }
+    .top-title-text p{
+        font-size: 100%;
+    }
+    .top-title-text h1 {
+    font-size:280%;
+    }
+    .top-title-text{
+        padding: 2%;
     }
 }
 @media(min-width:1200px){

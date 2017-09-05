@@ -14,43 +14,40 @@
         <br>
                 <table class="table">
                 <tbody>
-                    <tr>
-                    <th scope="row">
-                        <td>EMAIL:</td>
-                    </th>
-                    <td>{{ user.email }}</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">
-                        <td>SPECIALITE:</td>
-                    </th>
-                    <td>{{ user.speciality }}</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">
-                        <td>GRADE:</td>
-                    </th>
-                    <td>{{ user.grad }}</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">
-                        <td>PHONE:</td>
-                    </th>
-                    <td>{{ user.phone_number }}</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">
-                        <td>TYPE:</td>
-                    </th>
-                    <td>{{ user.account_type }}</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">
-                        <td></td>
-                    </th>
-                    <td></td>
-                    </tr>
-                </tbody>
+                    <div class="container">
+                        <tr>
+                            <th scope="row">
+                                <td>Name:</td>
+                            </th>
+                            <td>{{ user.first_name }} {{user.last_name}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <td>EMAIL:</td>
+                            </th>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <td>SPECIALITE:</td>
+                            </th>
+                            <td>{{ user.speciality }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <td>PHONE:</td>
+                            </th>
+                            <td>{{ user.phone_number }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">
+                                <td>TYPE:</td>
+                            </th>
+                            <td>{{ user.account_type }}</td>
+                        </tr>
+                        
+                    </div>
+                    </tbody>
                 </table>
             </div>
         </div>

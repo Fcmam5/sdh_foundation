@@ -7,14 +7,14 @@ from .forms import UserChangeForm, UserCreationForm
 class UsersUserAdmin(UserAdmin):
     fieldsets = (
                 (None, {'fields': ('email','first_name','last_name', 'password', 'account_type')}),
-                (_('Personal info'), {'fields': ('phone_number',)}),
+                (_('Personal info'), {'fields': ('first_name','last_name','phone_number','speciality','grad','image','cv')}),
                 (_('Permissions'), {'fields': ('groups',)}),
                 # (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
             )
     add_fieldsets = (
                 (None, {
                     'classes': ('wide',),
-                    'fields': ('email', 'password1', 'password2')}
+                    'fields': ('email', 'password1', 'password2','phone_number')}
                 ),
                 (_('Profile'), {'fields': ('first_name','last_name','phone_number','speciality','grad','image','cv')}),
                  (_('Permissions'), {'fields': ('account_type','groups',)}),

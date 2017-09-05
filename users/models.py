@@ -56,6 +56,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     grad = models.CharField(_('Academic rank'),max_length = 25 , blank = True)
     cv = models.FileField(_('CV'),blank = True)
     account_type = models.IntegerField(_('Account typ'),default=1, choices=ACCOUNT_TYPES)
+    career_describ = models.TextField()
 
 
     is_superuser = models.BooleanField(_('superuser status'), default=False,
