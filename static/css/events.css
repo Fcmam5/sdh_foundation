@@ -1,0 +1,11 @@
+.active-event {
+    border-top:10px solid #27ae61;
+}
+.past-event {
+    border-top:10px solid #60646D;
+    opacity:0.5;
+}
+.past-event:hover {
+    opacity: 1;
+    transition:0.3s;
+}

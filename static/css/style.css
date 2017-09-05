@@ -33,7 +33,19 @@ img {
     margin-top:3%;
     margin-bottom:3%;
 }
-    
+
+.padding-top {
+    padding-top:12vh;
+}
+
+.profile {
+  padding: 3%;
+  background-color:#fff;
+  background-color: #fff;
+  border:1px solid #ddd;
+  border-radius:4px;
+  margin-bottom:3%;
+}
 /*start FOOTER style */
 footer {
     background-color:#27332C;
@@ -90,8 +102,19 @@ footer .colomn {
     margin: 10px 0px;
 }
 
+footer .footer-contact p{
+  margin-bottom: 0px;
+}
+
 footer .border-left{
     border-left: 0.5px solid rgba(255,255,255, 0.1);
+}
+
+#change-lang{
+  color: white;
+  background-color: #27332C;
+  display: inline-block;
+  width: 100%;
 }
 /*end FOOTER style */
 /*start NAVBAR style*/
@@ -254,7 +277,7 @@ nav img{
 .event-sign {
     color:#CF000F;
     font-size:120%;
-    
+
 }
 /*end of HOME ABOUT style*/
 /*start ASSOCIATION about */
@@ -390,7 +413,7 @@ nav img{
     }
 }
 @media(min-width:1200px){
-    
+
     p {
         font-size:100%;
     }

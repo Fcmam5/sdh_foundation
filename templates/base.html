@@ -11,15 +11,20 @@
         <link rel="shortcut icon" href="https://logopond.com/logos/c41e886bf46fb87c62d17374c41d6f74.png">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600" rel="stylesheet">
+        {% block csslibrary %}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.green.min.css">
+        {% endblock %}
         {% compress css %}
         <link href="{% static 'css/style.css'%}" rel="stylesheet">
+        {% block costumcss %}
         <link href="{% static 'css/articles-style.css'%}" rel="stylesheet">
+        {% endblock %}
+        {% endcompress %}
         {% if LANGUAGE_CODE == 'ar' %}
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/droid-arabic-kufi" type="text/css"/>
         <link href="{% static 'css/rtl.css'%}" rel="stylesheet">
         {% endif%}
-        {% endcompress %}
         {% block meta %}
         {% endblock %}
     </head>
