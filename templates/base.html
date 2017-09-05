@@ -15,9 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.green.min.css">
         {% compress css %}
         <link href="{% static 'css/style.css'%}" rel="stylesheet">
-        {% block costumcss %}
         <link href="{% static 'css/articles-style.css'%}" rel="stylesheet">
-        {% endblock %}
         {% if LANGUAGE_CODE == 'ar' %}
         <link href="{% static 'css/rtl.css'%}" rel="stylesheet">
         {% endif%}
