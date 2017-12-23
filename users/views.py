@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.conf import settings
 from django.core.mail import EmailMessage
 from .forms import ContactByMailForm, RegistrationDemandForm
@@ -69,14 +69,17 @@ def registration_demand(request):
     return render(request, 'contact/registration.html', {'form': form,'sent': sent})
 
 def profile_view(request, id):
-    user = get_object_or_404(CustomUser, pk=id)
-    events = Event.objects.all().order_by('-id') # TODO: Get active events
-    context = {
-        'user': user,
-        'events': events
-    }
-    return render(request, 'profile.html', context)
+    if request.user.pk == int(id):
+        user = get_object_or_404(CustomUser, pk=id)
+        events = Event.objects.all().order_by('-id') # TODO: Get active events
+        context = {
+            'user': user,
+            'events': events
+        }
+        return render(request, 'profile.html', context)
+    else:
+        return redirect('/admin/login')
 
-#testing error 404 
+#testing error 404
 def error(request):
     return render(request,'error404.html')
