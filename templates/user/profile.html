@@ -1,51 +1,49 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <div class="padding-top container">
     <div class="container col-sm-12  profile">
-      <div class="row">
-          <div class="col-sm-4">
-            <img src="{% if user.image %} {{ user.image.url }} {% else %} {{ user.get_gavatar }} {% endif %}"
-                 class="img-responsive" alt="{{ user.get_full_name }} profile picture">
-        </div>
-        <div class="col-sm-8 container">
-        <br>
-        <h1 class="text-center h4">{{ user.get_full_name }}</h1>
-        <br>
+        <div class="row">
+            <div class="col-sm-4">
+                <img src="{% if user.image %} {{ user.image.url }} {% else %} {{ user.get_gavatar }} {% endif %}" 
+                class="img-responsive" alt="{{ user.get_full_name }} profile picture">
+            </div>
+            <div class="col-sm-8 container">
+                <br>
+                <h1 class="text-center h4">{{ user.get_full_name }}</h1>
+                <br>
                 <table class="table">
-                <tbody>
-                    <div class="container">
-                        <tr>
-                            <th scope="row">
-                                <td>Name:</td>
-                            </th>
-                            <td>{{ user.first_name }} {{user.last_name}}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                <td>EMAIL:</td>
-                            </th>
-                            <td>{{ user.email }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                <td>SPECIALITE:</td>
-                            </th>
-                            <td>{{ user.speciality }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                <td>PHONE:</td>
-                            </th>
-                            <td>{{ user.phone_number }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                <td>TYPE:</td>
-                            </th>
-                            <td>{{ user.account_type }}</td>
-                        </tr>
-                    </div>
+                    <tbody>
+                        <div class="container">
+                            <tr>
+                                <th scope="row">
+                                    <td>Name:</td>
+                                </th>
+                                <td>{{ user.first_name }} {{user.last_name}}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <td>EMAIL:</td>
+                                </th>
+                                <td>{{ user.email }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <td>SPECIALITE:</td>
+                                </th>
+                                <td>{{ user.speciality }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <td>PHONE:</td>
+                                </th>
+                                <td>{{ user.phone_number }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <td>TYPE:</td>
+                                </th>
+                                <td>{{ user.account_type }}</td>
+                            </tr>
+                        </div>
                     </tbody>
                 </table>
             </div>
@@ -58,43 +56,34 @@
 <div class="container ">
     <div class="text-center margin profile-describ">
         <h3>Biographie</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-         <a href="{{ user.cv.url }}" download=".pdf">Télécharger le fichier (.pdf)</a>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <a href="{{ user.cv.url }}" download="{{user.get_full_name}}.cv.pdf">Télécharger le fichier (.pdf)</a>
     </div>
     <div class="profile-describ" id="portfolio">
-      <h3 class="text-center">Latest articles</h3>
-    <div class="row">
-
-{% for article in user.article_set.all|slice:":6"%}
-      {% with article.image_set.all|first as article_image %}
-      <div class="col-sm-4 portfolio-item">
-          <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-          <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                  <i class="fa fa-link fa-3x"></i>
-              </div>
-          </div>
-          <!-- TODO: Change  https://unsplash.it/1100 with /static/img/no-image.png -->
-          <img src="{% if article_image %} {{article_image}} {%else%} https://unsplash.it/1100 {%endif%}" class="img-responsive portfolio-image" alt="{{ article.title }} poster"></a>
-          <div class="portfolio-caption">
-            <h4>{{ article.title }}</h4>
-          </div>
-      </div>
-      {% endwith %}
-      {% empty %}
-      <div class="col-sm 12">
-        <p class="text-center">This user didn't publish any article yet</p>
-      </div>
-      {% endfor %}
+        <h3 class="text-center">Latest articles</h3>
+        <div class="row">
+            {% for post in user.article_set.all|slice:":6"%} {% if post.images_set.all %}
+            <div class="col-sm-3">
+                <a href="{{ post.get_absolute_url }}">
+                    {% with post.images_set.all|first as image %}
+                    <img src="{{ image.image.url }}" alt="{{ image.alt_text }}" class="img-responsive"> {% endwith %}
+                </a>
+            </div>
+            {% else %}
+            <div class="col-sm-3">
+                <a href="{{ post.get_absolute_url }}">
+                    <img src="/static/img/no-img.png" alt="{{ post.title }}" class="img-responsive">
+                </a>
+            </div>
+            {% endif %} {% empty %}
+            <div class="col-sm 12">
+                <p class="text-center">This user didn't publish any article yet</p>
+            </div>
+            {% endfor %}
+        </div>
     </div>
- </div>
 
 </div>
-
-
-
-
-
-
 {% endblock %}
