@@ -3,9 +3,12 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.core.mail import send_mail
+from django.template.defaultfilters import slugify
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
 import hashlib
+def upload_location(instance, filename):
+    return "users/user%s/%s" %(instance.id, filename)
 
 class CustomUserManager(BaseUserManager):
 
@@ -54,7 +57,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     phone_number = models.CharField(_('Phone number'),max_length = 25)
     speciality = models.CharField(_('Speciality'),max_length = 25 , blank = True)
     grad = models.CharField(_('Academic rank'),max_length = 25 , blank = True)
-    cv = models.FileField(_('CV'),blank = True)
+    cv = models.FileField(_('CV'),blank = True, upload_to= upload_location)
     account_type = models.IntegerField(_('Account typ'),default=1, choices=ACCOUNT_TYPES)
     career_describ = models.TextField()
 
@@ -81,7 +84,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = _('users')
 
     def get_absolute_url(self):
-        return reverse("profile", kwargs={"id" : self.id})
+        return reverse("user", kwargs={"id" : self.id})
 
     def get_full_name(self):
         """

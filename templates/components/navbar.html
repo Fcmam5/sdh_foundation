@@ -20,9 +20,15 @@
                 <ul class="nav navbar-nav navbar-right">
                     {% if request.user.is_authenticated %}
                         <li>
-                            <a href="/profile">
+                            <a href="{% url "profile" request.user.id%}">
                                 <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
                                 {{ request.user.first_name}}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/admin">
+                                <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+                                Create
                             </a>
                         </li>
                         <li>
@@ -51,15 +57,14 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="{% url "about" %}">{% trans 'Sidi El Houari'%}</a></li>
                     <li><a href="{% url "articles" %}">{% trans 'Articles' %}<span class="sr-only"></span></a></li>
-                    <li>
-                        
+                    <li>  
                         <a href="{% url "events" %}">
                             <span class="glyphicon glyphicon-info-sign event-sign" aria-hidden="true"></span>
                             {% trans 'Events' %}<span class="sr-only"></span>
                         </a>
-                    </li>
-                    
+                    </li>                    
                 </ul>
-               </div><!-- /.navbar-collapse -->
+            </div><!-- /.navbar-collapse -->
+               
             </div><!-- /.container-fluid -->
         </nav>

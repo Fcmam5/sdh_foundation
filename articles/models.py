@@ -21,6 +21,11 @@ def upload_location(instance, filename):
     slug =  slugify(title)
     return "articles/article%s/%s" %(instance.post.id, filename)
 
+def upload_locationpdf(instance, filename):
+    title = instance.document
+    slug =  slugify(title)
+    return "articles/article%s/%s" %(instance.id, filename)
+
 # Create your models here.
 class Article(models.Model):
     author = models.ForeignKey(CustomUser)
@@ -33,7 +38,8 @@ class Article(models.Model):
     updated = models.DateTimeField(verbose_name=_('Last update'),db_index=True, auto_now_add=False, auto_now=True)
     categorie = models.ForeignKey('articles.Categorie', default=1)
     document = models.FileField(_('Document'),blank = True, null = True,
-                help_text=_('Document to join in article for download'))
+                help_text=_('Document to join in article for download'),
+                upload_to= upload_locationpdf)
     language = models.CharField(_('Language'),max_length = 60,choices=LANGUAGES, default = 'ARABE')
     published = models.BooleanField(_('Published'),
                     default = False, help_text="Choose whether to publish or draft the article")
