@@ -20,21 +20,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from django.views.i18n import set_language
-from .views import home, about, privacy_policy
-from users.views import contact_us, registration_demand , error
+from .views import home, about, privacy_policy, contact_us, registration_demand, error
 from articles.sitemaps import ArticleSitemap
 
 sitemaps = {
     'articles' : ArticleSitemap()
 }
 
-
-
 urlpatterns = [
     # Sidi Al-houari Home Page
     url(r'^$', view=home, name='home'),
 
-    # Sidi Al-houari Home Page
+    # Sidi Al-houari About Page
     url(r'^about/', view=about, name='about'),
 
     # List of all articles
@@ -42,10 +39,6 @@ urlpatterns = [
 
     # List of all events
     url(r'^events/', include("events.urls")),
-
-    # User profile
-    url(r'^users/', include("users.urls")),
-
 
     # Admin stuff TODO: Change to lOGIN
     url(r'^admin/', admin.site.urls),
@@ -58,6 +51,9 @@ urlpatterns = [
 
     # Registration urls
     url(r'^register/', view=registration_demand, name="register"),
+
+    # Detail of User
+    url(r'^user/', include("users.urls")),
 
     # For SEO
     url(r'^sitemap\.xml', sitemap, {'sitemaps': sitemaps}),

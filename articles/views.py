@@ -12,7 +12,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Search
 from haystack.query import SearchQuerySet
 from articles.forms import SearchForm
-
+from users.models import CustomUser
 from articles.models import Article, Categorie, Images
 from events.models import Event
 
@@ -23,6 +23,7 @@ from .forms import PostForm, ImageForm
 def index(request):
     posts = Article.objects.filter(published=True).order_by('-posted')
     categories = Categorie.objects.all().order_by('-id')
+    users = CustomUser.objects.all().order_by('-id')
     events = Event.objects.all().order_by('-id')
     paginator = Paginator(posts, 10)
     page = request.GET.get('page', 1)
@@ -36,6 +37,8 @@ def index(request):
         queryset = paginator.page(paginator.num_pages)
 
     context = {
+        'posts' : posts,
+        'users' : users,
         'categories': categories,
         'events' : events,
         'paginator': queryset,

@@ -45,7 +45,6 @@
                             </th>
                             <td>{{ user.account_type }}</td>
                         </tr>
-                        
                     </div>
                     </tbody>
                 </table>
@@ -61,7 +60,7 @@
         <h3>Biographie</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-         <a href="{{ user.cv }}" download="cv.pdf">Télécharger le fichier (.pdf)</a>
+         <a href="{{ user.cv.url }}" download=".pdf">Télécharger le fichier (.pdf)</a>
     </div>
     <div class="profile-describ" id="portfolio">
       <h3 class="text-center">Latest articles</h3>
