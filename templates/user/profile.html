@@ -4,21 +4,15 @@
         <div class="row">
             <div class="col-sm-4">
                 <img src="{% if user.image %} {{ user.image.url }} {% else %} {{ user.get_gavatar }} {% endif %}" 
-                class="img-responsive" alt="{{ user.get_full_name }} profile picture">
+                class="img-responsive img-circle" alt="{{ user.get_full_name }} profile picture">
             </div>
             <div class="col-sm-8 container">
                 <br>
-                <h1 class="text-center h4">{{ user.get_full_name }}</h1>
+                <h1 class=" h4">{{ user.get_full_name }}</h1>
                 <br>
                 <table class="table">
                     <tbody>
                         <div class="container">
-                            <tr>
-                                <th scope="row">
-                                    <td>Name:</td>
-                                </th>
-                                <td>{{ user.first_name }} {{user.last_name}}</td>
-                            </tr>
                             <tr>
                                 <th scope="row">
                                     <td>EMAIL:</td>
@@ -39,9 +33,15 @@
                             </tr>
                             <tr>
                                 <th scope="row">
-                                    <td>TYPE:</td>
+                                    <td>GRADE:</td>
                                 </th>
-                                <td>{{ user.account_type }}</td>
+                                <td>{{ user.grad }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <td>CAREER:</td>
+                                </th>
+                                <td>{{ user.career_describ }}</td>
                             </tr>
                         </div>
                     </tbody>

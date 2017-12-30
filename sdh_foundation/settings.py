@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'articles',
     'events',
     'users',
+    'data',
     ]
 
 MIDDLEWARE = [
@@ -193,7 +194,7 @@ CKEDITOR_CONFIGS = {
     'article_body_editor': {
         'toolbar': 'Custom',
         'toolbar_Custom': [
-            ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates', '-'],
+            ['default','Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates', '-'],
             ['Find', 'Replace', '-'],
             ['Image', 'Table', 'HorizontalRule', 'PageBreak'],
             ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'BidiLtr', 'BidiRtl', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],

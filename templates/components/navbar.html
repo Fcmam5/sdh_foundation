@@ -9,10 +9,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
-                <a href="{% url "home" %}"><img class="navbar-brand" src="https://logopond.com/logos/c41e886bf46fb87c62d17374c41d6f74.png" alt=""></a>
-                <!--<a class="navbar-brand" href="#">Lorem ipsum <strong>dolor sit</strong> amet, consectetur.</a>-->
-
+                    {% for sef in data %}
+                        <a href="{% url "home" %}"><img class="navbar-brand" src="{{ sef.logo.url }}" alt="" ></a>
+                    <!--<a class="navbar-brand" href="#">Lorem ipsum <strong>dolor sit</strong> amet, consectetur.</a>-->
+                    {% endfor %}
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,7 +21,8 @@
                     {% if request.user.is_authenticated %}
                         <li>
                             <a href="{% url "profile" request.user.id%}">
-                                <i class="glyphicon glyphicon-user" aria-hidden="true"></i>
+                                <!-- <i class="glyphicon glyphicon-user" aria-hidden="true"></i> -->
+                                <img width="20" height="20" class=" img-circle" src="{% if request.user.image %} {{ request.user.image.url }} {% else %} {{ request.user.get_gavatar }} {% endif %}" alt="User Avatar">
                                 {{ request.user.first_name}}
                             </a>
                         </li>

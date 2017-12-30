@@ -8,11 +8,18 @@ from users.forms import ContactByMailForm, RegistrationDemandForm
 from articles.models import Article
 from events.models import Event
 from users.models import CustomUser
+from data.models import SEF_data, Slogo
 # Create your views here.
 
 # Display the foundation HomeScreen
 def home(request):
-    return render(request, 'index.html')
+    data = SEF_data.objects.all()
+    sponsors = Slogo.objects.all().order_by('id')
+    context = {
+        'data' : data,
+        'sponsors' : sponsors
+    }
+    return render(request, 'index.html', context)
 
 # Display the foundation about page
 def about(request):
