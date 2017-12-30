@@ -13,4 +13,4 @@ rcssmin==1.0.6
 rjsmin==1.0.12
 six==1.10.0
 Whoosh==2.7.4
-psycopg2==2.2.7
+psycopg2
