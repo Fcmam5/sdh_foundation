@@ -7,7 +7,7 @@ from .models import Event
 
 # Customize my admin
 class EventModelAdmin(admin.ModelAdmin):
-    list_display = ["title", "updated", "timing","is_active"] 
+    list_display = ["id", "title", "updated", "timing","is_active"] 
     class Meta:
         model = Event
 
