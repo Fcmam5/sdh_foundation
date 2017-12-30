@@ -13,14 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url, include, handler400, handler403, handler404, handler500
 from django.contrib import admin
 admin.autodiscover()
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
 from django.views.i18n import set_language
-from .views import home, about, privacy_policy
+from .views import home, about, privacy_policy, errors_view
 from users.views import contact_us, registration_demand , error
 from articles.sitemaps import ArticleSitemap
 
@@ -76,6 +76,7 @@ urlpatterns = [
 admin.site.site_header = 'SEFoundation'
 admin.site.site_title = 'SEF'
 admin.site.title = "SEF"
+handler400 = handler403 = handler404 = handler500 = errors_view
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

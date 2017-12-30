@@ -14,3 +14,6 @@ def about(request):
 # Display the User profile
 def privacy_policy(request):
     return render(request, 'privacy-policy.html')
+
+def errors_view(request):
+    return render(request, '404.html')
