@@ -66,7 +66,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'sdh_foundation.urls'
-ALLOWED_HOSTS = []
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -91,8 +90,12 @@ WSGI_APPLICATION = 'sdh_foundation.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': con_s.DB_NAME,
+        'USER': con_s.DB_USER,
+        'PASSWORD': con_s.DB_PASSWORD,
+        'HOST': con_s.DB_HOST,
+        'PORT':con_s.DB_PORT,
     }
 }
 
