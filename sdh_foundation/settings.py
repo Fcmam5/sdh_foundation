@@ -92,11 +92,11 @@ WSGI_APPLICATION = 'sdh_foundation.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sefoundation',
-        'USER': 'sef',
-        'PASSWORD': 'sidielhouari31',
-        'HOST': '127.0.0.1',
-        'PORT': '',
+        'NAME': con_s.DB_NAME,
+        'USER': con_s.DB_USER,
+        'PASSWORD': con_s.DB_PASSWORD,
+        'HOST': con_s.DB_HOST,
+        'PORT':con_s.DB_PORT,
     }
 }
 

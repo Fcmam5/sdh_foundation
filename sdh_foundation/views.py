@@ -28,6 +28,8 @@ def about(request):
 # Display the User profile
 def privacy_policy(request):
     return render(request, 'privacy-policy.html')
+
+
 # Contact-Us form handling
 def contact_us(request):
     sent = False
@@ -85,6 +87,7 @@ def registration_demand(request):
         form = RegistrationDemandForm()
 
     return render(request, 'contact/registration.html', {'form': form,'sent': sent})
-#testing error 404
-def error(request):
-    return render(request,'error404.html')
+
+# Render Error
+def errors_view(request):
+    return render(request, '404.html')
