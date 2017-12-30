@@ -3,8 +3,9 @@
     <div class="container col-sm-12  profile">
         <div class="row">
             <div class="col-sm-4">
-                <img src="{% if user.image %} {{ user.image.url }} {% else %} {{ user.get_gavatar }} {% endif %}" 
-                class="img-responsive img-circle" alt="{{ user.get_full_name }} profile picture">
+
+                <img src="{% if user.image %} {{ user.image.url }} {% else %} {{ user.get_gavatar }} {% endif %}"
+                class="img-responsive" alt="{{ user.get_full_name }} profile picture">
             </div>
             <div class="col-sm-8 container">
                 <br>
@@ -43,6 +44,7 @@
                                 </th>
                                 <td>{{ user.career_describ }}</td>
                             </tr>
+
                         </div>
                     </tbody>
                 </table>
@@ -56,10 +58,13 @@
 <div class="container ">
     <div class="text-center margin profile-describ">
         <h3>Biographie</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </p>
+        {% if user.career_describ %}
+          <p>{{ user.career_describ }}</p>
+        {% endif %}
+
+        {% if user.cv %}
         <a href="{{ user.cv.url }}" download="{{user.get_full_name}}.cv.pdf">Télécharger le fichier (.pdf)</a>
+        {% endif %}
     </div>
     <div class="profile-describ" id="portfolio">
         <h3 class="text-center">Latest articles</h3>
