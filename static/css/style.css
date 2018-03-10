@@ -134,6 +134,13 @@ nav img{
     margin-bottom: 0;
 }
 
+#dzCollapse {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;  /* 50% of your logo width */
+    display: block;
+}
+
 .nav>li>a {
     padding:17px 10px;
     font-size:10px;
@@ -378,6 +385,10 @@ nav img{
     .top-title-text{
         padding: 8%;
     }
+    /* TODO : Hide the dz flag when screen size */
+    #dz {
+        display: none;
+    }
 }
 @media(min-width:768px){
     p {
@@ -412,6 +423,11 @@ nav img{
         padding: 7%;
     
     }
+
+    #dzCollapse {
+        display: none;
+    }
+    
 }
 @media(min-width:992px){
     p {
