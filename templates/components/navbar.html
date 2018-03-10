@@ -9,60 +9,72 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="{% url "home" %}"><img class="navbar-brand" src="../static/img/logo.png" alt=""></a>
+                    <a href="{% url "home" %}"><img class="navbar-brand"  src="../static/img/logo.png" alt=""></a>
+                    
+                    <a id="dzCollapse">
+                        <img src="../static/img/dz.gif" alt="" width="30" height="30">
+                    </a>
                 </div>
-
+                
+                
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    {% if request.user.is_authenticated %}
-                        <li>
-                            <a href="{% url "profile" request.user.id%}">
-                                <!-- <i class="glyphicon glyphicon-user" aria-hidden="true"></i> -->
-                                <img width="20" height="20" class=" img-circle" src="{% if request.user.image %} {{ request.user.image.url }} {% else %} {{ request.user.get_gavatar }} {% endif %}" alt="User Avatar">
-                                {{ request.user.first_name}}
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="{% url "about" %}">{% trans 'Sidi El Houari'%}</a></li>
+                        <li><a href="{% url "articles" %}">{% trans 'Articles' %}<span class="sr-only"></span></a></li>
+                        <li>  
+                            <a href="{% url "events" %}">
+                                <span class="glyphicon glyphicon-info-sign event-sign" aria-hidden="true"></span>
+                                {% trans 'Events' %}<span class="sr-only"></span>
                             </a>
-                        </li>
-                        <li>
-                            <a href="/admin">
-                                <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
-                                Create
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/admin/logout">
-                                <i class="glyphicon glyphicon-off" aria-hidden="true"></i>
-                                {% trans 'Logout' %}
-                            </a>
-                        </li>
-                    {% else %}
-                        <li>
+                        </li>                    
+                    </ul>
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if request.user.is_authenticated %}
+                            <li>
+                                <a href="{% url "profile" request.user.id%}">
+                                    <!-- <i class="glyphicon glyphicon-user" aria-hidden="true"></i> -->
+                                    <img width="30" height="30" class=" img-circle" src="{% if request.user.image %} {{ request.user.image.url }} {% else %} {{ request.user.get_gavatar }} {% endif %}" alt="User Avatar">
+                                    {{ request.user.first_name}}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin">
+                                    <i class="glyphicon glyphicon-plus" aria-hidden="true"></i>
+                                    Create
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin/logout">
+                                    <i class="glyphicon glyphicon-off" aria-hidden="true"></i>
+                                    {% trans 'Logout' %}
+                                </a>
+                            </li>
+                        {% else %}
+                            <li>
 
-                            <a href="/admin">
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                {% trans 'Login' %}
-                            </a>
-                        </li>
-                        <li>
+                                <a href="/admin">
+                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    {% trans 'Login' %}
+                                </a>
+                            </li>
+                            <li>
 
-                            <a href="{% url "register" %}">
-                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                {% trans 'Register' %}
+                                <a href="{% url "register" %}">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    {% trans 'Register' %}
+                                </a>
+                            </li>
+                        {% endif %}
+                        <li id="dz" class="">
+                            <a>
+                                <img src="../static/img/dz.gif" alt="" width="30" height="30">
                             </a>
                         </li>
-                    {% endif %}
-                </ul>
-                <ul class="nav navbar-nav navbar-left">
-                    <li><a href="{% url "about" %}">{% trans 'Sidi El Houari'%}</a></li>
-                    <li><a href="{% url "articles" %}">{% trans 'Articles' %}<span class="sr-only"></span></a></li>
-                    <li>  
-                        <a href="{% url "events" %}">
-                            <span class="glyphicon glyphicon-info-sign event-sign" aria-hidden="true"></span>
-                            {% trans 'Events' %}<span class="sr-only"></span>
-                        </a>
-                    </li>                    
-                </ul>
-            </div><!-- /.navbar-collapse -->
+                    </ul>
+                    
+                </div><!-- /.navbar-collapse -->
                
             </div><!-- /.container-fluid -->
         </nav>
