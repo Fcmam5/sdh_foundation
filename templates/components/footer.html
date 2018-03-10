@@ -30,19 +30,17 @@
                               </select>
                           </form>
                     </div>
-                    {% for sef in data %}
                     <div class="col-sm-3 colomn border-left footer-contact">
                         <h1>{% trans 'Contact' %}</h1>
-                        <p><strong>{% trans 'Email:' %} </strong>{{ sef.foundation_gmail }}</p>
-                        <p><strong>{% trans 'Adress:' %} </strong>{{ sef.foundation_address }}</p>
+                        <p><strong>{% trans 'Email:' %} </strong>abc@gmail.com</p>
+                        <p><strong>{% trans 'Adress:' %} </strong>53 &rlm;,cité les castors&rlm;, Oran</p>
                         <p><strong>{% trans 'Chaine Nationale:' %} </strong><a href="http://entv.dz/" target="_blank">ENTV</a></p>
                         <p><strong>{% trans 'Radio Oran:' %} </strong><a href="http://www.radioalgerie.dz/player/ar/live/31-Oran" target="_blank">{% trans 'El Bahia' %} (92.7 FM)</a></p>
                     </div>
                     
-                        <div class="col-sm-3 colomn border-left">
-                            <img class="img-responsive" src="{{ sef.logo.url }}" alt="{% trans 'Sidi El Houari foundation' %}" height="200" width="200">
-                        </div>
-                    {% endfor %}
+                    <div class="col-sm-3 colomn border-left">
+                        <img class="img-responsive" src="../static/img/logo.png" alt="{% trans 'Sidi El Houari foundation' %}">
+                    </div>
                 </div>
                 <hr>
                 <p class="copyright text-center">

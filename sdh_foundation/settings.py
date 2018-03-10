@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import config_secrets as con_s #File containing secret crediantials and ignored by Git
+from . import config_secrets as con_s #File containing secret crediantials and ignored by Git
 from django.utils.translation import ugettext_lazy as _
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'articles',
     'events',
     'users',
-    'data',
     ]
 
 MIDDLEWARE = [
