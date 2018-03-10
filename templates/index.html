@@ -2,14 +2,13 @@
 
 {% block content %}
     <main>
-            {% for sef in data %}
             <section id="home">
                 
                 <div id="home-describ">
-                    <h1>{{ sef.foundation_name }}</h1>
-                    <p>{{ sef.description}}</p>
+                    <h1>Sid Al-Houari Foundation</h1>
+                    <p>Lorem ipsum dolor sit amet <strong>consectetur lorem</strong> ipsum dolor sit amet, consectetur consectetur lorem ipsum dolor sit amet, consectetur</p>
                     <a class="jump-to" href="#sidi-houari-home-about"><i class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></i></a>
-                </div> 
+                </div>
             </section>
             <section id="sidi-houari-home-about">
                     <div class="container">
@@ -44,9 +43,9 @@
             <section id="association-home-about">
                 <div class="container">
                     <div class="text-center">
-                        <h1>{{ sef.foundation_name}}</h1>
-                        <p>{{ sef.description }}</p>
-                        <img class="text-center" src="{{ sef.logo.url }}" alt="" height="200" width="200">
+                        <h1>Random Association</h1>
+                        <p>Lorem ipsum <strong>dolor sit</strong> amet, eum tempore maiores quo sunt quod,cupiditate incidunt quod recusandae. Error temporibus eos dolores nemo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, in totam cum natus dignissimos tempore eaque et vero ipsa animi obcaecati .</p>
+                        <img class="img" src="../static/img/logo.png" alt="" height="200" width="200">
                         
                     </div>
                     <!--<div class="col-md-6">
@@ -60,9 +59,9 @@
                         <h3>Stay in Contact</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis maxime non impedit suscipit laborum, adipisci tempora qui, numquam quisquam vitae dignissimos repudiandae quis! Nesciunt provident dicta temporibus aut! Necessitatibus, fuga?</p>
                         <br>
-                        <P>Foundation Email : {{ sef.foundation_gmail }}</p>
-                        <p>Foundation Adress : {{ sef.foundation_address }}</p>
-                        <p>Foundation location : {{ sef.foundation_location }}</p>
+                        <P>Foundation Email : Sidlhouari@gmail.com</p>
+                        <p>Foundation Adress : 53,Hamri Barça,Oran,Algeria</p>
+                        <p>Foundation location : PICK IT YOURSELF</p>
                         <div class="text-center">
                             <a class="index" href="{% url "contact_us" %}">Contact our Foundation</a>
                         </div>
@@ -71,24 +70,20 @@
             </section>
             <section id="our-sponsors">
                 <h3 class="text-center">OUR SPONSORS</h3>
-                {% for sponsor in sponsors %}
-                    <div class="row ">
-                        {% if sponsor.image %}
-                            <div class="text-center col-sm-4 col-sm-offset-2">   
-                                <img src="{{ sponsor.image.url }}" alt="{{ sponsor.alt_text }}" class="img-responsive" width="100" height="100">   
-                            </div>
-                        {% else %}
-                            <div class="col-sm-6">
-                                <img src="/static/img/no-img.png" alt="{{ sponsor.alt_text }}" class="img-responsive">
-                            </div>
-                        {% endif %} 
-                        {% empty %}
-                        <div class="col-sm 12">
-                            <p class="text-center">We don't have Sponsors yet</p>
-                        </div>
+                <div class="container text-center">
+                     <div class="col-md-3 col-xs-6">
+                        <img src="http://cdn.liberte-algerie.com/images/article/thumbs/d-djezzy-organise-une-ceremonie-en-lhonneur-des-enfants-circoncis-et-honore-ses-retraites-7bc38.jpg" alt="" height="100" width="100">
                     </div>
-                {% endfor %}                
+                    <div class="col-md-3 col-xs-6">
+                        <img src="http://www.hb-technologies.com.dz/images/djmediatools/31.jpg" alt="" height="100" width="100">
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <img src="http://proscom-tn.com/wp-content/uploads/2015/08/ooredoo1.png" alt="" height="100" width="100">
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Sonatrach.svg/langfr-280px-Sonatrach.svg.png" alt="" height="100" width="100">
+                    </div>
+                </div>
             </section>
-            {% endfor %}
         </main>
 {% endblock %}

@@ -122,3 +122,6 @@ ENV/
 .history
 
 # End of https://www.gitignore.io/api/django,python,visualstudiocode
+
+# Add env folder under the name sdhf
+sdhf
